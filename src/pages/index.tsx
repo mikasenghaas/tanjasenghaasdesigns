@@ -1,7 +1,10 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
+
+import theme from '@/lib/theme'
 
 const Home: NextPage = () => {
   return (
@@ -13,9 +16,9 @@ const Home: NextPage = () => {
       </Head>
 
       <Box>
-        <Heading>Tanja Senghaas Designs.</Heading>
+        <Heading color='brand.900'>Tanja Senghaas Designs.</Heading>
+        <Text>This is a website</Text>
       </Box>
-
     </>
   )
 }
