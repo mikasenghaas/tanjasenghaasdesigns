@@ -7,6 +7,7 @@ export interface Print extends Project {
 
 const DATA: Print[] = [
   {
+    id: 'gesund-leben',
     name: "Gesund Leben",
     date: new Date(2004),
     position: "Art Direktion | Neuentwicklung",
@@ -15,6 +16,7 @@ const DATA: Print[] = [
     numImages: 1
   },
   {
+    id: 'wolf',
     name: "Wolf",
     date: new Date(2016),
     position: "Art Direktion | Neuentwicklung",
@@ -23,6 +25,7 @@ const DATA: Print[] = [
     numImages: 9
   },
   {
+    id: 'hygge',
     name: "Hygge",
     date: new Date(2017),
     position: "Creative Direktion | Neuentwicklung",
@@ -31,6 +34,7 @@ const DATA: Print[] = [
     numImages: 12
   },
   {
+    id: 'holly',
     name: "Holly",
     date: new Date(2019),
     position: "Art Direktion | Neuentwicklung",
@@ -39,6 +43,7 @@ const DATA: Print[] = [
     numImages: 6
   },
   {
+    id: 'wohllebens-welt',
     name: "Wohllebens Welt",
     date: new Date(2019),
     position: "Art Direktion | Neuentwicklung",
@@ -47,6 +52,7 @@ const DATA: Print[] = [
     numImages: 1
   },
   {
+    id: 'robb',
     name: "Robb",
     date: new Date(2020),
     position: "Art Direktion | Redesign",
@@ -55,6 +61,7 @@ const DATA: Print[] = [
     numImages: 10
   },
   {
+    id: 'landlust-zuhaus',
     name: "Landlust Zuhaus",
     date: new Date(2021),
     position: "Art Direktion | Redesign",
@@ -63,6 +70,7 @@ const DATA: Print[] = [
     numImages: 12
   },
   {
+    id: 'einfach-hausgemacht',
     name: "Einfach Hausgemacht",
     date: new Date(2021),
     position: "Art Direktion | Redesign",
@@ -71,6 +79,7 @@ const DATA: Print[] = [
     numImages: 12
   },
   {
+    id: 'hygge-spezial',
     name: "Hygge Spezial",
     date: new Date(2021),
     position: "Art Direktion | Neuentwicklung",
@@ -79,6 +88,7 @@ const DATA: Print[] = [
     numImages: 12
   },
   {
+    id: 'white-paper',
     name: "White Paper",
     date: new Date(2021),
     position: "Art Direktion",
@@ -87,6 +97,7 @@ const DATA: Print[] = [
     numImages: 4
   },
   {
+    id: 'pro-bono',
     name: "Pro Bono",
     date: new Date(2022),
     position: "Creative Direktion | Neuentwicklung",
