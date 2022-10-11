@@ -4,10 +4,15 @@ import {
   Heading,
   Text,
   Button,
-  Link as ChakraLink
+  Link as ChakraLink,
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  IconButton
 } from "@chakra-ui/react";
 import Link from 'next/link'
-// import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
@@ -16,24 +21,52 @@ import useWindowDimensions from "@/lib/useWindowSize";
 import { capitalise } from "@/lib/helpers"
 
 function Navbar() {
-  // const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const menuItems: string[] = ['projekte', 'angebot', 'vita', 'kontakt']
 
-  return (
-    <Flex>
-      {
-        menuItems.map((menuItem: string) => {
-          return (
-            <Link href={menuItem} key={menuItem}>
-              <Button variant='ghost' mx={.5} >
-                {capitalise(menuItem)}
-              </Button>
-            </Link>
-          )
-        })
-      }
-    </Flex>
-  )
+  if (width > 800) {
+    return (
+      <Flex>
+        {
+          menuItems.map((menuItem: string) => {
+            return (
+              <Link href={menuItem} key={menuItem}>
+                <Button variant='ghost' mx={.5} >
+                  {capitalise(menuItem)}
+                </Button>
+              </Link>
+            )
+          })
+        }
+      </Flex>
+    )
+  } else {
+    return (
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label="Menu Options"
+          icon={<GiHamburgerMenu />}
+          variant="outline"
+          colorMode="dark"
+        />
+        <MenuList my={2}>
+          {
+            menuItems.map((menuItem: string) => {
+              return (
+                <Link href={menuItem} key={menuItem}>
+                  <MenuItem>
+                    {capitalise(menuItem)}
+                  </MenuItem>
+                </Link>
+              )
+            })
+
+          }
+        </MenuList>
+      </Menu>
+    )
+  }
 }
 
 export default function Header() {
@@ -42,23 +75,23 @@ export default function Header() {
     <Banner
       position="fixed"
       zIndex={100}
-      bg="blackAlpha.50"
-      height="75px"
+      bg="whiteAlpha.50"
+      height="10%"
       backdropFilter="blur(10px)"
     >
-      <PageContainer>
-        <Flex height="75px" alignItems="center" justifyContent="space-between">
+      <PageContainer h="100%">
+        <Flex h="100%" alignItems="center" justifyContent="space-between">
           <Link href="/">
             <Box>
               <ChakraLink>
-                <Heading fontSize='lg'>Tanja Senghaas Designs</Heading>
+                <Heading fontSize={{ base: 'md', sm: 'lg', xxl: '4xl' }}>Tanja Senghaas Designs</Heading>
               </ChakraLink>
-              <Text fontSize='sm' >Kreativdirektion | Magazinentwicklung</Text>
+              <Text fontSize={{ base: 'sm', sm: 'md', xxl: '2xl' }} >Kreativdirektion | Magazinentwicklung</Text>
             </Box>
           </Link>
           <Navbar />
         </Flex>
       </PageContainer>
-    </Banner>
+    </Banner >
   );
 };
