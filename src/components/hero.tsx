@@ -11,8 +11,8 @@ interface HeroProps {
 export default function Hero({ url, alt }: HeroProps) {
   return (
     <>
-      <Banner position='fixed' height='100vh' mt='-10%' zIndex={-1}>
-        <ScrollParallax strength={0.1}>
+      <Banner position='absolute' height='100vh' mt='-6%' zIndex={-1}>
+        <ScrollParallax strength={0.1} >
           <Image
             src={url}
             alt={alt}
@@ -22,7 +22,7 @@ export default function Hero({ url, alt }: HeroProps) {
           />
         </ScrollParallax>
       </Banner>
-      <Box height='100vh' mt='-10%' />
+      <Box height='100vh' mt='-8%' />
     </>
 
   )
