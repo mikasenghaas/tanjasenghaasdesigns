@@ -9,12 +9,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Flex direction='column' minHeight='100vh'>
         <Header />
         <main>
-          <Box mt='75px'>
+          <Box mt='10%'>
             {children}
           </Box>
         </main>
         <Footer />
-      </ Flex>
+      </Flex>
     </ PageContainer>
   )
 }

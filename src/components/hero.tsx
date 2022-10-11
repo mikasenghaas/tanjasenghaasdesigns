@@ -1,15 +1,15 @@
 import Image from 'next/image'
-import { Box } from '@chakra-ui/react'
 
 import Banner from '@/components/banner'
 
 interface HeroProps {
   url: string,
   alt: string
+  height: string
 }
-export default function Hero({ url, alt }: HeroProps) {
+export default function Hero({ url, alt, height }: HeroProps) {
   return (
-    <Banner height='90vh' marginTop='-75px' zIndex={-1}>
+    <Banner height={height} mt='-10%' zIndex={-1}>
       <Image
         src={url}
         alt={alt}
