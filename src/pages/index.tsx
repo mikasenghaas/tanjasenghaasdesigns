@@ -20,11 +20,17 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <Hero url="/assets/portrait/portrait0.jpg" alt="tanja-senghaas-portrait" />
-        <Heading fontSize='lg' my={10}>Magazinentwicklung</Heading>
-        <Grid templateColumns={{ 'base': 'repeat(2, 1fr)', 'md': 'repeat(3, 1fr)' }} gap={5}>
+        <Hero url="/assets/portrait/tanja-senghaas-portrait-index.jpg" alt="tanja-senghaas-portrait" height='100vh' />
+        <Heading fontSize='lg' mt={20} mb={10}>Magazinentwicklung</Heading>
+        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap={5}>
           {
             printProjects.map((printProject: Print) => <GridImage key={printProject.id} project={printProject} border={false} />)
+          }
+        </Grid>
+        <Heading fontSize='lg' mt={20} mb={10}>Typografie</Heading>
+        <Grid templateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={5}>
+          {
+            typographyProjects.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} border={true} />)
           }
         </Grid>
       </Layout>
