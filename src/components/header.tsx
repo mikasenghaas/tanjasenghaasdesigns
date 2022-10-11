@@ -18,6 +18,7 @@ import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
 
 import useWindowDimensions from "@/lib/useWindowSize";
+import { useResponsiveFontSize } from '@/lib/responsive'
 import { capitalise } from "@/lib/helpers"
 
 function Navbar() {
@@ -70,6 +71,7 @@ function Navbar() {
 }
 
 export default function Header() {
+  const { md } = useResponsiveFontSize();
 
   return (
     <Banner
@@ -84,9 +86,9 @@ export default function Header() {
           <Link href="/">
             <Box>
               <ChakraLink>
-                <Heading fontSize={{ base: 'md', sm: 'lg', xxl: '4xl' }}>Tanja Senghaas Designs</Heading>
+                <Heading fontSize={md}>Tanja Senghaas Designs</Heading>
               </ChakraLink>
-              <Text fontSize={{ base: 'sm', sm: 'md', xxl: '2xl' }} >Kreativdirektion | Magazinentwicklung</Text>
+              <Text fontSize={md} >Kreativdirektion | Magazinentwicklung</Text>
             </Box>
           </Link>
           <Navbar />
