@@ -13,14 +13,14 @@ export default function Layout({ heroUrl, children }: Props) {
   return (
     <Flex direction='column' minHeight='100vh'>
       <main>
-          <Header />
-          <Hero url={heroUrl} alt='hero-image' />
-          <Box bgColor='white'>
-            <PageContainer >
-              {children}
-            </PageContainer>
+            <Header />
+        <Hero url={heroUrl} alt='hero-image' />
+        <Box bgColor='white'>
+          <PageContainer >
+            {children}
             <Footer />
-          </Box>
+          </PageContainer>
+        </Box>
       </main>
     </Flex>
   )
