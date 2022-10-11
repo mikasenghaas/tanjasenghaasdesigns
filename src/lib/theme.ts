@@ -1,5 +1,10 @@
 import { extendTheme } from '@chakra-ui/react'
 
+const config = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+}
+
 const fonts = {
   heading: `"Montserrat", "sans-serif"`,
   body: `"Montserrat", "sans-serif"`
@@ -14,6 +19,10 @@ const color = {
   }
 }
 
-const theme = extendTheme({ color })
+const breakpoints = {
+  xxl: "96em"
+}
+
+const theme = extendTheme({ config, color, breakpoints })
 
 export default theme;
