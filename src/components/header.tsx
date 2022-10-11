@@ -20,6 +20,7 @@ import Banner from "@/components/banner";
 import useWindowDimensions from "@/lib/useWindowSize";
 import { useResponsiveFontSize } from '@/lib/responsive'
 import { capitalise } from "@/lib/helpers"
+import theme from "@/lib/theme"
 
 function Navbar() {
   const { width } = useWindowDimensions();
@@ -49,7 +50,6 @@ function Navbar() {
           aria-label="Menu Options"
           icon={<GiHamburgerMenu />}
           variant="outline"
-          colorMode="dark"
         />
         <MenuList my={2}>
           {
@@ -71,7 +71,7 @@ function Navbar() {
 }
 
 export default function Header() {
-  const { md } = useResponsiveFontSize();
+  const { md, lg } = useResponsiveFontSize();
 
   return (
     <Banner
@@ -84,10 +84,8 @@ export default function Header() {
       <PageContainer h="100%">
         <Flex h="100%" alignItems="center" justifyContent="space-between">
           <Link href="/">
-            <Box>
-              <ChakraLink>
-                <Heading fontSize={md}>Tanja Senghaas Designs</Heading>
-              </ChakraLink>
+            <Box _hover={{ cursor: 'pointer' }} role='group'>
+              <Heading fontSize={lg} _groupHover={{ color: 'green' }}>Tanja Senghaas Designs</Heading>
               <Text fontSize={md} >Kreativdirektion | Magazinentwicklung</Text>
             </Box>
           </Link>
