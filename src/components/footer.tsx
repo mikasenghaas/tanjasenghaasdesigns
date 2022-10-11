@@ -2,7 +2,7 @@ import { Box, Flex, Text, Divider } from "@chakra-ui/react";
 
 export default function Footer() {
   return (
-    <Box marginTop="auto">
+    <Box marginTop="auto" mt={20}>
       <Divider />
       <Flex
         justifyContent="center"
