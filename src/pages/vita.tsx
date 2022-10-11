@@ -4,14 +4,13 @@ import Head from 'next/head'
 import { Flex, Box, Heading, Text } from '@chakra-ui/react'
 
 import Layout from '@/components/layout'
-import Hero from '@/components/hero'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 import vitaItems, { VitaItem } from '@/models/vita'
 import customers, { Customer } from '@/models/customers'
 
 const VitaEntry = ({ vitaItem }: { vitaItem: VitaItem }) => {
-  const { sm, md } = useResponsiveFontSize()
+  const { md } = useResponsiveFontSize()
 
   return (
     <Flex mb={5} maxWidth='90%'>
@@ -45,13 +44,12 @@ const Vita: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Hero url='/assets/portrait/tanja-senghaas-portrait-vita.jpg' alt='portrait-tanja-senghaas' height='100vh' />
-        <Flex direction={{ base: 'column-reverse', md: 'row' }}>
+      <Layout heroUrl='/assets/hero/vita.jpg'>
+        <Flex pt={20} direction={{ base: 'column-reverse', md: 'row' }}>
           <Box flex={2}>
             <Flex maxWidth='90%'>
               <Box flex={1} />
-              <Heading flex={5} fontSize={lg} mt={20} mb={5}>Vita</Heading>
+              <Heading flex={5} fontSize={lg} mb={5}>Vita</Heading>
             </Flex>
             {
               vitaItems.map((vitaItem: VitaItem, i: number) => {
@@ -63,7 +61,7 @@ const Vita: NextPage = () => {
             }
           </Box>
           <Flex flex={1} direction='column' alignItems='flex-end'>
-            <Heading fontSize={lg} mt={20} mb={5} textAlign={{ base: 'left', md: 'right' }}>Ausgewählte Kunden</Heading>
+            <Heading fontSize={lg} mb={5} textAlign={{ base: 'left', md: 'right' }}>Ausgewählte Kunden</Heading>
             {customers.map((customer: Customer) => {
               return (
                 <Text key={customer.name} fontSize={md} textAlign={{ base: 'left', md: 'right' }}>
