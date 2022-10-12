@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Box,
   Flex,
   AspectRatio,
   Text,
-  Link as ChakraLink
 } from "@chakra-ui/react";
 
 import type { Project } from '@/models/projects'
-import { MotionBox, MotionAspectRatio, MotionBadge, MotionImage } from '@/components/motion'
+import { MotionBox, MotionBadge } from '@/components/motion'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 interface GridImageProps {
