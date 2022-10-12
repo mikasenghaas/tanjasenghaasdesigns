@@ -1,17 +1,17 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
-  Box,
   Flex,
-  Heading,
   Text,
-  Button,
+  Link as ChakraLink,
   Menu,
   MenuList,
   MenuItem,
   MenuButton,
   IconButton
 } from "@chakra-ui/react";
-import Link from 'next/link'
 import { ArrowLeftIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { AnimateSharedLayout } from 'framer-motion'
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
@@ -22,24 +22,42 @@ import { useResponsiveFontSize } from '@/lib/responsive'
 import { capitalise } from "@/lib/helpers"
 
 function Navbar() {
+  const router = useRouter()
   const { width } = useWindowDimensions();
   const menuItems: string[] = ['projekte', 'angebot', 'vita', 'kontakt']
 
+  const isActiveLink = (path: string, linkName: string) => {
+    return path.includes(linkName)
+  }
+
   if (width > 800) {
     return (
-      <Flex>
-        {
-          menuItems.map((menuItem: string) => {
-            return (
-              <Link href={`/${menuItem}`} key={menuItem} >
-                <Button variant='link' color='black' mx={3} >
-                  {capitalise(menuItem)}
-                </Button>
-              </Link>
-            )
-          })
-        }
-      </Flex>
+      <AnimateSharedLayout>
+        <Flex>
+          {
+            menuItems.map((menuItem: string) => {
+              return (
+                <Link href={`/${menuItem}`} key={menuItem} >
+                  <Flex direction='column' mx={2}>
+                    <ChakraLink variant='link' color='black' _hover={{ textDecoration: 'none' }}>
+                      {capitalise(menuItem)}
+                    </ChakraLink>
+                    {isActiveLink(router.pathname, menuItem) &&
+                      <MotionBox
+                        layoutId="navigation-underline"
+                        w='100%'
+                        h={.5}
+                        bgColor='black'
+                        animate
+                      />
+                    }
+                  </Flex>
+                </Link>
+              )
+            })
+          }
+        </Flex>
+      </AnimateSharedLayout >
     )
   } else {
     return (
