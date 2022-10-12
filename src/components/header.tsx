@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   Button,
-  Link as ChakraLink,
   Menu,
   MenuList,
   MenuItem,
@@ -13,14 +12,15 @@ import {
 } from "@chakra-ui/react";
 import Link from 'next/link'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiFillHome } from 'react-icons/ai'
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
+import { MotionBox, MotionFlex, MotionHeading } from '@/components/motion'
 
 import useWindowDimensions from "@/lib/useWindowSize";
 import { useResponsiveFontSize } from '@/lib/responsive'
 import { capitalise } from "@/lib/helpers"
-import theme from "@/lib/theme"
 
 function Navbar() {
   const { width } = useWindowDimensions();
@@ -33,7 +33,7 @@ function Navbar() {
           menuItems.map((menuItem: string) => {
             return (
               <Link href={menuItem} key={menuItem}>
-                <Button variant='ghost' mx={.5} >
+                <Button variant='link' color='black' mx={3} >
                   {capitalise(menuItem)}
                 </Button>
               </Link>
@@ -71,6 +71,21 @@ function Navbar() {
 }
 
 export default function Header() {
+  const logoAnimation = {
+    rest: {
+      transform: 'translateX(-17px)',
+    },
+    hover: {
+      transform: 'translateX(0px)',
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  }
+  const colorGreen = {
+    rest: { color: 'black' },
+    hover: { color: 'green' }
+  }
   const { md, lg } = useResponsiveFontSize();
 
   return (
@@ -78,16 +93,19 @@ export default function Header() {
       position="fixed"
       zIndex={100}
       bg="whiteAlpha.50"
-      height="10%"
+      height={20}
       backdropFilter="blur(10px)"
     >
       <PageContainer h="100%">
         <Flex h="100%" alignItems="center" justifyContent="space-between">
           <Link href="/">
-            <Box _hover={{ cursor: 'pointer' }} role='group'>
-              <Heading fontSize={lg} _groupHover={{ color: 'green' }}>Tanja Senghaas Designs</Heading>
+            <MotionBox _hover={{ cursor: 'pointer' }} initial='rest' whileHover='hover' overflow='hidden'>
+              <MotionFlex variants={logoAnimation} alignItems='center'>
+                <AiFillHome size='15px' />
+                <MotionHeading fontSize={lg} ml='2px'>Tanja Senghaas Designs</MotionHeading>
+              </MotionFlex>
               <Text fontSize={md} >Kreativdirektion | Magazinentwicklung</Text>
-            </Box>
+            </MotionBox>
           </Link>
           <Navbar />
         </Flex>
