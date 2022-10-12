@@ -1,11 +1,11 @@
 import type Project from '@/models/projects';
 
-export interface Print extends Project {
+export interface Magazine extends Project {
   description: string[],
   numImages: number
 }
 
-const DATA: Print[] = [
+const DATA: Magazine[] = [
   {
     id: 'gesund-leben',
     name: "Gesund Leben",

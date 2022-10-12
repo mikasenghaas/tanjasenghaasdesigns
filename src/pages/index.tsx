@@ -7,7 +7,7 @@ import Layout from '@/components/layout'
 import GridImage from '@/components/grid-image'
 import EmblaCarousel from '@/components/embla-carousel'
 
-import printProjects, { Print } from '@/models/prints'
+import magazines, { Magazine } from '@/models/magazines'
 import typographyProjects, { Typography } from '@/models/typography'
 
 const Home: NextPage = () => {
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           <Heading fontSize='lg' mb={10}>Magazinentwicklung</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap={5}>
             {
-              printProjects.map((printProject: Print) => <GridImage key={printProject.id} project={printProject} border={false} />)
+              magazines.map((magazine: Magazine) => <GridImage key={magazine.id} project={magazine} border={false} />)
             }
           </Grid>
           <Heading fontSize='lg' mt={20} mb={10}>Typografie</Heading>
