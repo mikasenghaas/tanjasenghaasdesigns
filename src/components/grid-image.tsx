@@ -17,6 +17,7 @@ interface GridImageProps {
 
 const GridImage = ({ project, type }: GridImageProps) => {
   const { sm, md } = useResponsiveFontSize()
+  const dir = type === 'magazine' ? 'magazines' : 'typography'
 
   const opacityIn = {
     rest: { opacity: 0, },
@@ -33,7 +34,7 @@ const GridImage = ({ project, type }: GridImageProps) => {
         <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''} overflow='hidden'>
           <MotionBox position='relative' variants={scaleUp}>
             <Image
-              src={`/assets/projekte/${project.id}/${project.id}0.jpg`}
+              src={`/assets/${dir}/${project.id}/${project.id}0.jpg`}
               alt={`${project.id}-preview`}
               layout='fill'
               objectFit='cover'

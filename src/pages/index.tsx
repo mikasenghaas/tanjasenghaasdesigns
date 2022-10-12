@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             }
           </Grid>
           <Heading fontSize='lg' mt={20} mb={10}>Typografie</Heading>
-          <Grid templateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={5}>
+          <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={5}>
             {
               typography.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} type='typography' />)
             }

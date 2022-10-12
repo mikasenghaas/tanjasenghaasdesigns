@@ -57,7 +57,7 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
               return (
                 <AspectRatio key={num} ratio={1}>
                   <Image
-                    src={`/assets/projekte/${id}/${id}${num}.jpg`}
+                    src={`/assets/magazines/${id}/${id}${num}.jpg`}
                     alt={`${id}-${num}`}
                     layout='fill'
                     objectFit='cover'
