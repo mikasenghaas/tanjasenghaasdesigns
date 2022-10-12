@@ -29,7 +29,7 @@ const Angebot: NextPage = () => {
       <Layout heroUrl='/assets/hero/vita.jpg'>
         <Flex pt={20} direction='column'>
           <Box align='right'>
-            <Heading fontSize={lg} fontWeight={900} mb={5} >Meine Philosophie</Heading>
+            <Heading fontSize={lg} mb={5} >Meine Philosophie</Heading>
             {
               philosphyItems.map((philosophy: Philosophy, i: number) => {
                 return (
@@ -42,7 +42,7 @@ const Angebot: NextPage = () => {
             }
           </Box>
           <Box mt={20}>
-            <Heading fontSize={lg} fontWeight={900} mb={5}>Angebot</Heading>
+            <Heading fontSize={lg} mb={5}>Angebot</Heading>
             <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap={5} mt={10}>
               {
                 serviceItems.map((service: Service, i: number) => {
