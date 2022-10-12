@@ -41,6 +41,7 @@ const Vita: NextPage = () => {
       <Head>
         <title>Vita | Tanja Senghaas</title>
         <meta name="Vita | Tanja Senghaas Designs" content="Tanja Senghaas ist eine deutsche Grafikdesignern und Artdirektiorin mit einer Spezialisierung auf Magazindesignentwicklung" />
+        <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

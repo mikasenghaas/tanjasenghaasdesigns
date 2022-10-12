@@ -18,6 +18,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Tanja Senghaas</title>
         <meta name="Tanja Senghaas Designs" content="Creative Direction" />
+        <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
