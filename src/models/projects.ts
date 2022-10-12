@@ -1,7 +1,7 @@
-export default interface Project {
-  id: string | undefined,
-  name: string | undefined,
-  date: Date | undefined,
-  position: string | undefined,
-  company: string | undefined,
+export interface Project {
+  id: string,
+  name: string,
+  date: Date,
+  position: string,
+  company: string
 }
