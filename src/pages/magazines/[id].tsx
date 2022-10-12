@@ -5,7 +5,7 @@ import type {
 import Head from 'next/head'
 import Image from 'next/image'
 
-import { Box, Grid, GridItem, AspectRatio, Heading, Text } from '@chakra-ui/react'
+import { Box, Grid, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
 import Layout from '@/components/layout'
 import magazinesById from '@/models/magazines'
