@@ -47,8 +47,8 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
       </Head>
 
       <Layout>
-        <Flex mt={40}>
-          <Box flex={2}>
+        <Flex mt={40} direction={{ base: 'column', sm: 'row' }}>
+          <Box flex={2} mb={10}>
             <Heading fontSize={lg}>{name}</Heading>
             <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
             <Text fontSize={md} mt={5} flex={2}>{description}</Text>

@@ -8,13 +8,13 @@ import customerQuotes, { Quote } from '@/models/quotes'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const QuoteBox = ({ quote }: { quote: Quote }) => {
-  const { sm, md, lg } = useResponsiveFontSize()
+  const { sm, md } = useResponsiveFontSize()
 
   return (
-    <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='center' px={10} >
+    <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='center' px={{ base: 0, md: 10 }} >
       <Text fontSize={md} textAlign='center'>{quote.text}</Text>
       <Text fontSize={md} fontWeight={600} textAlign='center' mt={10}>{quote.author}</Text>
-      <Text fontSize={sm} fontWeight={400} textAlign='center' maxWidth='50%'>{quote.authorPosition}, {quote.authorCompany}</Text>
+      <Text fontSize={sm} fontWeight={400} textAlign='center' minWidth='50%'>{quote.authorPosition}, {quote.authorCompany}</Text>
     </Flex>
   )
 }

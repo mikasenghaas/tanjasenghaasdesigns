@@ -50,11 +50,10 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
         <Box mt={40}>
           <Heading fontSize={lg}>{name}</Heading>
           <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
-          <Text fontSize={md} mt={5} maxWidth='75%'>{description}</Text>
+          <Text fontSize={md} mt={5} maxWidth={{ sm: '75%' }}>{description}</Text>
           <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={5} mt={20}>
             {Array.from({ length: numImages }, (_, num: number) => {
-              console.log(num)
               return (
                 <AspectRatio key={num} ratio={1}>
                   <Image
