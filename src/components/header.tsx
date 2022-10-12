@@ -32,32 +32,30 @@ function Navbar() {
 
   if (width > 800) {
     return (
-      <AnimateSharedLayout>
-        <Flex>
-          {
-            menuItems.map((menuItem: string) => {
-              return (
-                <Link href={`/${menuItem}`} key={menuItem} >
-                  <Flex direction='column' mx={2}>
-                    <ChakraLink variant='link' color='black' _hover={{ textDecoration: 'none' }}>
-                      {capitalise(menuItem)}
-                    </ChakraLink>
-                    {isActiveLink(router.pathname, menuItem) &&
-                      <MotionBox
-                        layoutId="navigation-underline"
-                        w='100%'
-                        h={.5}
-                        bgColor='black'
-                        animate
-                      />
-                    }
-                  </Flex>
-                </Link>
-              )
-            })
-          }
-        </Flex>
-      </AnimateSharedLayout >
+      <Flex>
+        {
+          menuItems.map((menuItem: string) => {
+            return (
+              <Link href={`/${menuItem}`} key={menuItem} >
+                <Flex direction='column' mx={2}>
+                  <ChakraLink variant='link' color={isActiveLink(router.pathname, menuItem) ? 'black' : 'blackAlpha.700'} _hover={{ textDecoration: 'none', color: 'black' }}>
+                    {capitalise(menuItem)}
+                  </ChakraLink>
+                  {isActiveLink(router.pathname, menuItem) &&
+                    <MotionBox
+                      layoutId="navigation-underline"
+                      w='100%'
+                      h={.5}
+                      bgColor='black'
+                      animate
+                    />
+                  }
+                </Flex>
+              </Link>
+            )
+          })
+        }
+      </Flex >
     )
   } else {
     return (

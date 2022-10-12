@@ -21,7 +21,7 @@ export default function Layout({ heroUrl, children }: Props) {
   }
 
   return (
-    <AnimatePresence initial={true} exitBeforeEnter>
+    <AnimatePresence initial={true} mode='wait'>
       <MotionBox
         key={router.pathname}
         initial='initial'
