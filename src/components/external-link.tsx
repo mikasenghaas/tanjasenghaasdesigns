@@ -5,17 +5,15 @@ import { useResponsiveFontSize } from '@/lib/responsive'
 
 interface ExternalLinkProps {
   href: string,
-  text: string,
-  size: string,
+  children: React.ReactNode,
   isExternal?: boolean
 }
-const ExternalLink = ({ href, text, size, isExternal }: ExternalLinkProps) => {
-  const fontSizes = useResponsiveFontSize();
+const ExternalLink = ({ href, children, isExternal }: ExternalLinkProps) => {
 
   return (
     <Link href={href} isExternal={isExternal}>
       <Flex align='center'>
-        <Text fontSize={fontSizes[size]}>{text}</Text>
+        {children}
         {isExternal && <ExternalLinkIcon style={{ margin: '0 5px' }} size={14} />}
       </Flex>
     </Link>
