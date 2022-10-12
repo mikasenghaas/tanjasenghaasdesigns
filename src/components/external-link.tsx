@@ -1,7 +1,5 @@
-import { Flex, Text, Link } from '@chakra-ui/react'
-import { FiExternalLink as ExternalLinkIcon } from 'react-icons/fi'
-
-import { useResponsiveFontSize } from '@/lib/responsive'
+import { Flex, Link } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 interface ExternalLinkProps {
   href: string,
@@ -14,7 +12,7 @@ const ExternalLink = ({ href, children, isExternal }: ExternalLinkProps) => {
     <Link href={href} isExternal={isExternal}>
       <Flex align='center'>
         {children}
-        {isExternal && <ExternalLinkIcon style={{ margin: '0 5px' }} size={14} />}
+        {isExternal && <ExternalLinkIcon mx={1} h={3} />}
       </Flex>
     </Link>
   )

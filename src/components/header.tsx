@@ -11,8 +11,7 @@ import {
   IconButton
 } from "@chakra-ui/react";
 import Link from 'next/link'
-import { GiHamburgerMenu } from "react-icons/gi";
-import { AiFillHome } from 'react-icons/ai'
+import { ArrowLeftIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
@@ -48,7 +47,7 @@ function Navbar() {
         <MenuButton
           as={IconButton}
           aria-label="Menu Options"
-          icon={<GiHamburgerMenu />}
+          icon={<HamburgerIcon />}
           variant="outline"
         />
         <MenuList my={2}>
@@ -101,7 +100,7 @@ export default function Header() {
           <Link href="/">
             <MotionBox _hover={{ cursor: 'pointer' }} initial='rest' whileHover='hover' overflow='hidden'>
               <MotionFlex variants={logoAnimation} alignItems='center'>
-                <AiFillHome size='15px' />
+                <ArrowLeftIcon h={3} />
                 <MotionHeading fontSize={lg} ml='2px'>Tanja Senghaas Designs</MotionHeading>
               </MotionFlex>
               <Text fontSize={md} >Kreativdirektion | Magazinentwicklung</Text>
