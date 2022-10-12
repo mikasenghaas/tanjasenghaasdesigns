@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { Box, Grid, Heading } from '@chakra-ui/react'
 
 import Layout from '@/components/layout'
-import Hero from '@/components/hero'
 import GridImage from '@/components/grid-image'
+import EmblaCarousel from '@/components/embla-carousel'
 
 import printProjects, { Print } from '@/models/prints'
 import typographyProjects, { Typography } from '@/models/typography'
@@ -33,6 +33,8 @@ const Home: NextPage = () => {
               typographyProjects.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} border={true} />)
             }
           </Grid>
+          <Heading fontSize='lg' mt={20} mb={10}>Kunden-Feedback</Heading>
+          <EmblaCarousel />
         </Box>
       </Layout>
     </>

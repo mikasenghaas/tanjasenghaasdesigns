@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/montserrat": "^4.5.13",
+    "embla-carousel-autoplay": "^7.0.3",
     "embla-carousel-react": "^7.0.3",
     "framer-motion": "^7.5.3",
     "next": "12.3.1",
