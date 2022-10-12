@@ -13,7 +13,7 @@ const DATA: Quote[] = [
     authorCompany: "Deutsche Medien Manufaktur"
   },
   {
-    text: "Kreativ und organisiert – Tanja hat diese seltene Kombination! Sie kann sich nicht nur hervorragend in Zeitgeistthemen eindenken und die passende, eigenständige und neue Optik dazu erfinden, sie ist einfach ein großartiger Sparringspartner, um Ideen weiterzuentwickeln und komplexe Formate zu strukturieren. Tanja taucht in jedes Thema komplett ein, bleibt dran, bis die Optik wirklich sitzt – es ist dieses ‚Ein kleines Stück weiter gehen als üblich‘, das Tanja auszeichnet und jeden ihrer Entwürfe so außergewöhnlich macht.",
+    text: "Wer eine ungemein kreative und meinungsstarke Sparringspartnerin sucht, ist bei Tanja genau richtig. Ich hatte das Vergnügen, gemeinsam mit ihr,ihrem Team und der GEOkompakt-Redaktion das optische und inhaltliche Konzept für das Magazin „Wohllebens Welt“ zu entwickeln.Wir hatten intern daran schon viele Monate lang gearbeitet, ohne aber wirklich voranzukommen – erst Tanjas sowohl visueller als auch inhaltlicher Input brachte uns auf den richtigen Weg,und so entstand ein Magazin mit einer einzigartigen Bildsprache.",
     author: "Michael Schaper",
     authorPosition: "Chefredakteur Geo Wissen",
     authorCompany: "Gruner + Jahr"
