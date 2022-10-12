@@ -1,8 +1,8 @@
-import type Project from '@/models/projects';
+import { Project } from '@/models/projects';
 
 export interface Magazine extends Project {
-  description: string[] | undefined,
-  numImages: number | undefined
+  description: string[],
+  numImages: number
 }
 
 export interface MagazineByIdProps { [key: string]: Magazine }
