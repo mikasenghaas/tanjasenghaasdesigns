@@ -29,8 +29,8 @@ const GridImage = ({ project, type }: GridImageProps) => {
   }
 
   return (
-    <MotionBox initial='rest' whileHover='hover' _hover={{ cursor: 'pointer' }}>
       <Link href={type === 'magazine' ? `/magazines/${project.id}` : `/typography/${project.id}`}>
+    <MotionBox initial='rest' whileHover='hover' _hover={{ cursor: 'pointer' }}>
         <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''} overflow='hidden'>
           <MotionBox position='relative' variants={scaleUp}>
             <Image
@@ -41,12 +41,12 @@ const GridImage = ({ project, type }: GridImageProps) => {
             />
           </MotionBox>
         </AspectRatio>
-      </Link>
       <Flex overflow='hidden' alignItems='flex-start' justifyContent='space-between' mt={2}>
         <Text fontSize={md} >{project.name}</Text>
         <MotionBadge variants={opacityIn} variant='subtle' colorScheme='gray' ml={2}>Read more</MotionBadge>
       </Flex>
     </MotionBox >
+      </Link>
   );
 };
 
