@@ -31,7 +31,7 @@ function Navbar() {
         {
           menuItems.map((menuItem: string) => {
             return (
-              <Link href={menuItem} key={menuItem}>
+              <Link href={`/${menuItem}`} key={menuItem}>
                 <Button variant='link' color='black' mx={3} >
                   {capitalise(menuItem)}
                 </Button>
@@ -54,7 +54,7 @@ function Navbar() {
           {
             menuItems.map((menuItem: string) => {
               return (
-                <Link href={menuItem} key={menuItem}>
+                <Link href={`${menuItem}`} key={menuItem}>
                   <MenuItem>
                     {capitalise(menuItem)}
                   </MenuItem>

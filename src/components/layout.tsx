@@ -11,17 +11,15 @@ interface Props {
 }
 export default function Layout({ heroUrl, children }: Props) {
   return (
-    <Flex direction='column' minHeight='100vh'>
-      <main>
-        <Header />
-        {heroUrl && <Hero url={heroUrl} alt='hero-image' />}
-        <Box bgColor='white'>
-          <PageContainer >
-            {children}
-            <Footer />
-          </PageContainer>
-        </Box>
-      </main>
+    <Flex direction='column' minHeight='100vh' >
+      <Header />
+      {heroUrl && <Hero url={heroUrl} alt='hero-image' />}
+      <Box bgColor='white'>
+        <PageContainer>
+          {children}
+        </PageContainer>
+      </Box>
+      <Footer />
     </Flex>
   )
 }
