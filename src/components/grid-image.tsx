@@ -11,15 +11,15 @@ import type Project from '@/models/projects'
 
 interface GridImageProps {
   project: Project,
-  border?: boolean
+  type: string
 }
 
-const GridImage = ({ project, border }: GridImageProps) => {
+const GridImage = ({ project, type }: GridImageProps) => {
   return (
     <GridItem>
-      <Link href='kontakt'>
+      <Link href={type === 'magazine' ? `/magazines/${project.id}` : `/typography/${project.id}`}>
         <ChakraLink>
-          <AspectRatio ratio={1} border={border ? '1px solid black' : ''}>
+          <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''}>
             <Image
               src={`/assets/projekte/${project.id}/${project.id}0.jpg`}
               alt={`${project.id}-preview`}

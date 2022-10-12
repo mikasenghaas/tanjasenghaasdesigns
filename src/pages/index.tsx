@@ -24,13 +24,13 @@ const Home: NextPage = () => {
           <Heading fontSize='lg' mb={10}>Magazinentwicklung</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap={5}>
             {
-              magazines.map((magazine: Magazine) => <GridImage key={magazine.id} project={magazine} border={false} />)
+              Object.values(magazines).map((magazine: Magazine) => <GridImage key={magazine.id} project={magazine} type='magazine' />)
             }
           </Grid>
           <Heading fontSize='lg' mt={20} mb={10}>Typografie</Heading>
           <Grid templateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={5}>
             {
-              typographyProjects.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} border={true} />)
+              typographyProjects.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} type='typography' />)
             }
           </Grid>
           <Heading fontSize='lg' mt={20} mb={10}>Kunden-Feedback</Heading>
