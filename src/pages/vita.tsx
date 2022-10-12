@@ -50,7 +50,7 @@ const Vita: NextPage = () => {
           <Box flex={2}>
             <Flex maxWidth='90%'>
               <Box flex={1} />
-              <Heading flex={5} fontSize={lg} mb={5}>Vita</Heading>
+              <Heading flex={5} fontSize={lg} mb={5} mt={{ base: 20, sm: 0 }}>Vita</Heading>
             </Flex>
             {
               vitaItems.map((vitaItem: VitaItem, i: number) => {

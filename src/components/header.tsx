@@ -31,7 +31,7 @@ function Navbar() {
         {
           menuItems.map((menuItem: string) => {
             return (
-              <Link href={`/${menuItem}`} key={menuItem}>
+              <Link href={`/${menuItem}`} key={menuItem} >
                 <Button variant='link' color='black' mx={3} >
                   {capitalise(menuItem)}
                 </Button>
@@ -54,7 +54,7 @@ function Navbar() {
           {
             menuItems.map((menuItem: string) => {
               return (
-                <Link href={`${menuItem}`} key={menuItem}>
+                <Link href={`${menuItem}`} key={menuItem} >
                   <MenuItem>
                     {capitalise(menuItem)}
                   </MenuItem>
@@ -97,7 +97,7 @@ export default function Header() {
     >
       <PageContainer h="100%">
         <Flex h="100%" alignItems="center" justifyContent="space-between">
-          <Link href="/">
+          <Link href="/" >
             <MotionBox _hover={{ cursor: 'pointer' }} initial='rest' whileHover='hover' overflow='hidden'>
               <MotionFlex variants={logoAnimation} alignItems='center'>
                 <ArrowLeftIcon h={3} />
