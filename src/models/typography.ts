@@ -1,4 +1,4 @@
-import type Project from '@/models/projects';
+import { Project } from '@/models/projects';
 
 export interface Typography extends Project { };
 export type typographyById = Record<string, Typography>

@@ -19,8 +19,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
-  const id = context.params?.id
+export async function getStaticProps(context: any) {
+  const id = context.params.id
   const magazine = magazinesById[id]
 
   if (magazine) {
