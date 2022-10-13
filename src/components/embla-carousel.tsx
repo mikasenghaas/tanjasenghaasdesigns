@@ -4,15 +4,17 @@ import Autoplay from 'embla-carousel-autoplay'
 
 import { Flex, Box, Text } from '@chakra-ui/react'
 
+import Banner from '@/components/banner'
+import PageContainer from '@/components/page-container'
 import customerQuotes, { Quote } from '@/models/quotes'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const QuoteBox = ({ quote }: { quote: Quote }) => {
-  const { sm, md } = useResponsiveFontSize()
+  const { sm, md, lg } = useResponsiveFontSize()
 
   return (
     <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='center' px={{ base: 0, md: 10 }} >
-      <Text fontSize={md} textAlign='center'>{quote.text}</Text>
+      <Text fontSize={lg} textAlign='center'>{quote.text}</Text>
       <Text fontSize={md} fontWeight={600} textAlign='center' mt={10}>{quote.author}</Text>
       <Text fontSize={sm} fontWeight={400} textAlign='center' minWidth='50%'>{quote.authorPosition}, {quote.authorCompany}</Text>
     </Flex>
@@ -40,19 +42,20 @@ const EmblaCarousel = () => {
   }, [embla, onSelect]);
 
   return (
-    <>
-      <Box ref={emblaRef} overflow="hidden">
-        <Box display="flex">
-          {customerQuotes.map((quote: Quote, index: number) => {
-            return (
-              <QuoteBox
-                key={index}
-                quote={quote}
-              />
-            );
-          })}
+      <Box bgColor='blackAlpha.300' borderRadius={10}>
+        <Box ref={emblaRef} overflow='hidden'>
+          <Box display="flex" mt={5}>
+            {customerQuotes.map((quote: Quote, index: number) => {
+              return (
+                <QuoteBox
+                  key={index}
+                  quote={quote}
+                />
+              );
+            })}
+          </Box>
         </Box>
-      </Box>
+
       <Flex justifyContent="center" alignItems="center" mt={10}>
         {customerQuotes.map((_: Quote, index: number) => {
           return (
@@ -66,7 +69,7 @@ const EmblaCarousel = () => {
               bgColor={
                 current === index
                   ? "black"
-                  : "gray"
+                  : "white"
               }
               _hover={{ cursor: "pointer" }}
               onClick={() => scrollTo(index)}
@@ -74,7 +77,7 @@ const EmblaCarousel = () => {
           );
         })}
       </Flex>
-    </>
+      </Box >
   )
 }
 

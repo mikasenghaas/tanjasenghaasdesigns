@@ -30,9 +30,9 @@ const GridImage = ({ project, type }: GridImageProps) => {
 
   return (
     <Link href={type === 'magazine' ? `/magazines/${project.id}` : `/typography/${project.id}`}>
-      <MotionBox initial='rest' whileHover='hover' _hover={{ cursor: 'pointer' }}>
-        <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''} overflow='hidden'>
-          <MotionBox position='relative' variants={scaleUp}>
+      <MotionBox initial='rest' whileHover='hover' _hover={{ cursor: 'pointer' }} >
+        <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''} overflow='hidden' borderRadius={10}>
+          <MotionBox position='relative' variants={scaleUp} borderRadius={10}>
             <Image
               src={`/assets/${dir}/${project.id}/${project.id}0.jpg`}
               alt={`${project.id}-preview`}
@@ -46,7 +46,7 @@ const GridImage = ({ project, type }: GridImageProps) => {
           {/*<MotionBadge variants={opacityIn} variant='subtle' colorScheme='gray' ml={2}>Read more</MotionBadge>*/}
         </Flex>
       </MotionBox >
-    </Link>
+    </Link >
   );
 };
 

@@ -9,7 +9,7 @@ interface HeroProps {
 }
 export default function Hero({ url, alt }: HeroProps) {
   return (
-    <Banner position='relative' height='90vh' mt={-12} zIndex={-1}>
+    <Banner position='relative' height='100vh' mt={-20} zIndex={-1}>
       <ScrollParallax strength={0.5} lerpEase={.3}>
         <Image
           src={url}

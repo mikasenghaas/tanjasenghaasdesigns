@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import {
   Flex,
   Text,
+  Heading,
   Link as ChakraLink,
   Menu,
   MenuList,
@@ -11,7 +12,6 @@ import {
   IconButton
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { AnimateSharedLayout } from 'framer-motion'
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
@@ -97,17 +97,12 @@ export default function Header() {
       }
     }
   }
-  const colorGreen = {
-    rest: { color: 'black' },
-    hover: { color: 'green' }
-  }
-  const { md, lg } = useResponsiveFontSize();
 
   return (
     <Banner
       position="fixed"
       zIndex={100}
-      bg="whiteAlpha.50"
+      bg="whiteAlpha.200"
       height={20}
       backdropFilter="blur(10px)"
     >
@@ -117,9 +112,11 @@ export default function Header() {
             <MotionBox _hover={{ cursor: 'pointer' }} initial='rest' whileHover='hover' overflow='hidden'>
               <MotionFlex variants={logoAnimation} alignItems='center'>
                 <ArrowLeftIcon h={3} />
-                <MotionHeading fontSize={lg} ml='2px'>Tanja Senghaas Designs</MotionHeading>
+                <Flex>
+                  <MotionHeading fontSize='2xl' ml='2px'>Tanja Senghaas</MotionHeading>
+                  <Heading fontSize='2xl' fontWeight={500} ml={1}>Designs.</Heading>
+                </Flex>
               </MotionFlex>
-              <Text fontSize={md} >Kreativdirektion | Magazinentwicklung</Text>
             </MotionBox>
           </Link>
           <Navbar />

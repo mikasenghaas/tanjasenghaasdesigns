@@ -10,9 +10,14 @@ import EmblaCarousel from '@/components/embla-carousel'
 import magazinesById, { Magazine } from '@/models/magazines'
 import typographyById, { Typography } from '@/models/typography'
 
+import { useResponsiveFontSize } from '@/lib/responsive'
+
 const Home: NextPage = () => {
   const magazines = Object.values(magazinesById)
   const typography = Object.values(typographyById)
+
+  const { lg, xl } = useResponsiveFontSize()
+
   return (
     <>
       <Head>
@@ -23,20 +28,25 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout heroUrl='/assets/hero/index.jpg'>
+        <Box position='absolute' mt='-400px' ml={-40}>
+          <Heading mb={3}>Gutes Design ist nicht nur schön.</Heading>
+          <Heading mb={3}> Es gibt Inhalten eine Form. </Heading>
+          <Heading>Und zeigt damit Haltung.</Heading>
+        </Box>
         <Box pt={20} >
-          <Heading fontSize='lg' mb={10}>Magazinentwicklung</Heading>
+          <Heading fontSize={xl}  mb={10}>Magazinentwicklung</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap={5}>
             {
               magazines.map((magazine: Magazine) => <GridImage key={magazine.id} project={magazine} type='magazine' />)
             }
           </Grid>
-          <Heading fontSize='lg' mt={20} mb={10}>Typografie</Heading>
+          <Heading fontSize={xl} mt={20} mb={10}>Typografie</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={5}>
             {
               typography.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} type='typography' />)
             }
           </Grid>
-          <Heading fontSize='lg' mt={20} mb={10}>Kunden-Feedback</Heading>
+          <Heading fontSize={xl} mt={20} mb={10}>Kunden-Feedback</Heading>
           <EmblaCarousel />
         </Box>
       </Layout>
