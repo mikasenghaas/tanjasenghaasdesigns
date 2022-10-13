@@ -54,6 +54,14 @@ const DATA: typographyById = {
     description: ["Entwicklung eines neuen zeitgemäßen Logos für die Zeitschrift „Landlust Zuhaus“. Ein Heft der Landlust Gruppe."],
     position: "Logoentwicklung",
     company: "Verlag Gruner+Jahr"
+  },
+  'landlust-shop': {
+    id: 'landlust-shop',
+    name: "Landlust Shop",
+    date: new Date("2022"),
+    description: [""],
+    position: "Logoentwicklung",
+    company: "Verlag Gruner+Jahr"
   }
 }
 
