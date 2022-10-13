@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-
-import { Flex, Box, Heading, Text } from '@chakra-ui/react'
+import { Flex, Box, Divider, Heading, Text } from '@chakra-ui/react'
+import { AiFillLinkedin } from 'react-icons/ai'
+import { FaXingSquare } from 'react-icons/fa'
 
 import Layout from '@/components/layout'
 import ExternalLink from '@/components/external-link'
-
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const Contact: NextPage = () => {
@@ -29,6 +29,15 @@ const Contact: NextPage = () => {
             <ExternalLink href='https://www.google.com/maps/place/Horandstieg+30,+22559+Hamburg,+Germany/@53.5725334,9.7440596,17z/data=!3m1!4b1!4m5!3m4!1s0x47b182443d0d0855:0x69b61617b923fb05!8m2!3d53.5725334!4d9.7462536' isExternal><Text fontSize={md}>Horandstieg 30, 22559 Hamburg</Text></ExternalLink>
             <ExternalLink href='mailto:tanja.senghaas@web.de' isExternal><Text fontSize={md}>tanja.senghaas@web.de</Text></ExternalLink>
             <ExternalLink href='tel:+4915122543476'><Text fontSize={md}>+49 (0) 151 22543476</Text></ExternalLink>
+            <Divider my={5} />
+            <Flex mb={1} alignItems='center'>
+              <AiFillLinkedin style={{ height: 25, width: 25, marginLeft: -1 }} />
+              <ExternalLink href='https://www.linkedin.com/in/tanja-senghaas-thomsen-1b224371/' isExternal><Text fontSize={md} ml={2}>@Tanja Senghaas Thomsen</Text></ExternalLink>
+            </Flex>
+            <Flex alignItems='center'>
+              <FaXingSquare style={{ height: 23, width: 23 }} />
+              <ExternalLink href='https://www.xing.com/profile/Tanjas_SenghaasThomsen' isExternal><Text fontSize={md} ml={2}>@Tanja Senghaas-Thomsen</Text></ExternalLink>
+            </Flex>
           </Box>
           <Box>
             <Heading fontSize={lg} mb={10}>Danke!</Heading>
