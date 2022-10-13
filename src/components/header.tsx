@@ -11,7 +11,7 @@ import {
   MenuButton,
   IconButton
 } from "@chakra-ui/react";
-import { ArrowLeftIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { ArrowLeftIcon, ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
@@ -24,15 +24,48 @@ import { capitalise } from "@/lib/helpers"
 function Navbar() {
   const router = useRouter()
   const { width } = useWindowDimensions();
-  const menuItems: string[] = ['projekte', 'angebot', 'vita', 'kontakt']
+  const menuItems: string[] = ['angebot', 'vita', 'kontakt']
 
   const isActiveLink = (path: string, linkName: string) => {
     return path.includes(linkName)
   }
 
+  const anchorLink = async (id: string) => {
+    if (router.pathname !== '/') {
+      await router.push('/')
+    }
+    const scrollY = window.scrollY
+    const clientY = document.querySelector(`#${id}`)?.getBoundingClientRect().top
+    if (scrollY !== undefined && clientY !== undefined) {
+      window.scrollTo({
+        top: scrollY + clientY - 80,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   if (width > 800) {
     return (
       <Flex>
+        <Menu>
+          <MenuButton color='blackAlpha.700' _hover={{ cursor: 'pointer', color: 'black' }}>
+            <Flex alignItems='center' mx={2}>
+              <ChevronDownIcon />
+              <Text>Projekte</Text>
+            </Flex>
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => anchorLink('magazines')}>
+              Magazinentwicklung
+            </MenuItem>
+            <MenuItem onClick={() => anchorLink('corporate')}>
+              Corporate Design
+            </MenuItem>
+            <MenuItem onClick={() => anchorLink('typography')}>
+              Typografie
+            </MenuItem>
+          </MenuList>
+        </Menu>
         {
           menuItems.map((menuItem: string) => {
             return (
@@ -67,11 +100,20 @@ function Navbar() {
           variant="outline"
         />
         <MenuList my={2}>
+          <MenuItem onClick={() => anchorLink('magazines')}>
+            Magazinentwicklung
+          </MenuItem>
+          <MenuItem onClick={() => anchorLink('corporate')}>
+            Corporate Design
+          </MenuItem>
+          <MenuItem onClick={() => anchorLink('typography')}>
+            Typografie
+          </MenuItem>
           {
             menuItems.map((menuItem: string) => {
               return (
                 <Link href={`${menuItem}`} key={menuItem} >
-                  <MenuItem>
+                  <MenuItem key={menuItem}>
                     {capitalise(menuItem)}
                   </MenuItem>
                 </Link>
@@ -86,6 +128,8 @@ function Navbar() {
 }
 
 export default function Header() {
+  const { md, lg, xl } = useResponsiveFontSize()
+
   const logoAnimation = {
     rest: {
       transform: 'translateX(-17px)',
@@ -113,8 +157,7 @@ export default function Header() {
               <MotionFlex variants={logoAnimation} alignItems='center'>
                 <ArrowLeftIcon h={3} />
                 <Flex>
-                  <MotionHeading fontSize='2xl' ml='2px'>Tanja Senghaas</MotionHeading>
-                  <Heading fontSize='2xl' fontWeight={500} ml={1}>Designs.</Heading>
+                  <MotionHeading fontSize={xl} fontWeight={800} ml='2px'>Tanja Senghaas Designs.</MotionHeading>
                 </Flex>
               </MotionFlex>
             </MotionBox>
