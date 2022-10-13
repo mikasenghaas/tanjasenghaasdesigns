@@ -55,12 +55,13 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={5} mt={20}>
             {Array.from({ length: numImages }, (_, num: number) => {
               return (
-                <AspectRatio key={num} ratio={1}>
+                <AspectRatio key={num} ratio={1} borderRadius={10}>
                   <Image
                     src={`/assets/magazines/${id}/${id}${num}.jpg`}
                     alt={`${id}-${num}`}
                     layout='fill'
                     objectFit='cover'
+                    style={{ borderRadius: '20px' }}
                   />
                 </AspectRatio>
               )

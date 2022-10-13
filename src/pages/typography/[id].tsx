@@ -60,6 +60,7 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
               alt={`${id}`}
               layout='fill'
               objectFit='cover'
+              style={{ borderRadius: '20px' }}
             />
           </AspectRatio>
         </Flex>
