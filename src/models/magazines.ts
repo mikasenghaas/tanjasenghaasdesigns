@@ -1,7 +1,6 @@
 import { Project } from '@/models/projects';
 
 export interface Magazine extends Project {
-  description: string[],
   numImages: number
 }
 
@@ -78,7 +77,7 @@ const DATA: MagazineByIdProps = {
     position: "Art Direktion | Redesign",
     company: "Verlagsgruppe Deutsche Medien-Manufaktur (DMM) ",
     description: ["Einfach Hausgemacht ist ein Magazin mit kreativen Rezeptideen, Do-It-Yourself-Bastel- und Dekotipps und praktischem Haushaltswissen aus der Landlust-Familie. Schwerpunkt von Einfach Hausgemacht ist Kochen und Essen. Es ist eine hochwertige, detailverliebt gestaltete und getexte, eigenständige Zeitschrift. "],
-    numImages: 5 
+    numImages: 5
   },
   'hygge-spezial': {
     id: 'hygge-spezial',
