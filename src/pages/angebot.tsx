@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Head from 'next/head'
 
 import {
-  Flex,
   Box,
+  AspectRatio,
   Grid,
   GridItem,
   Heading,
@@ -12,11 +13,10 @@ import {
 import Layout from '@/components/layout'
 
 import serviceItems, { Service } from '@/models/services'
-import philosphyItems, { Philosophy } from '@/models/philosophy'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const Angebot: NextPage = () => {
-  const { md, lg } = useResponsiveFontSize();
+  const { sm, md, lg } = useResponsiveFontSize();
 
   return (
     <>
@@ -27,37 +27,34 @@ const Angebot: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout heroUrl='/assets/hero/vita.jpg'>
-        <Flex pt={20} direction='column'>
-          <Flex direction='column' alignItems='flex-end'>
-            <Heading fontSize={lg} mb={5} >Meine Philosophie</Heading>
+      <Layout>
+        <Box mt={40}>
+          <Heading fontSize={lg} mb={5}>Mein Angebot</Heading>
+          <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap='50px 10px' mt={10}>
             {
-              philosphyItems.map((philosophy: Philosophy, i: number) => {
+              serviceItems.map((service: Service, i: number) => {
                 return (
-                  <Box key={i} maxWidth={600} my={5} textAlign='right'>
-                    <Heading fontSize={md} mb={1}>{philosophy.name}</Heading>
-                    {philosophy.description.map((line: string, i: number) => <Text fontSize={md} key={i}>{line}</Text>)}
-                  </Box>
+                  <GridItem key={i}>
+                    <AspectRatio ratio={1}>
+                      <Box borderRadius={10}>
+                        <Image
+                          src={`/assets/services/${service.name.toLowerCase().replaceAll(' ', '-')}.jpg`}
+                          alt={`${service.name}-image`}
+                          layout='fill'
+                          objectFit='cover'
+                          placeholder='blur'
+                          blurDataURL={`/assets/services/${service.name.toLowerCase().replaceAll(' ', '-')}.jpg`}
+                          priority />
+                      </Box>
+                    </AspectRatio>
+                    <Heading fontSize={md} my={{ base: 3, sm: 4 }}>{service.name}</Heading>
+                    <Text fontSize={sm}>{service.description}</Text>
+                  </GridItem>
                 )
               })
             }
-          </Flex>
-          <Box mt={20}>
-            <Heading fontSize={lg} mb={5}>Angebot</Heading>
-            <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap={5} mt={10}>
-              {
-                serviceItems.map((service: Service, i: number) => {
-                  return (
-                    <GridItem key={i}>
-                      <Heading fontSize={md} mb={1}>{service.name}</Heading>
-                      <Text fontSize={md}>{service.description}</Text>
-                    </GridItem>
-                  )
-                })
-              }
-            </Grid>
-          </Box>
-        </Flex>
+          </Grid>
+        </Box>
       </Layout>
     </>
   )
