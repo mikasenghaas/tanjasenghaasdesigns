@@ -41,9 +41,9 @@ const GridImage = ({ project, type }: GridImageProps) => {
             />
           </MotionBox>
         </AspectRatio>
-        <Flex overflow='hidden' alignItems='flex-start' justifyContent='space-between' mt={2}>
-          <Text fontSize={md} >{project.name}</Text>
-          {/*<MotionBadge variants={opacityIn} variant='subtle' colorScheme='gray' ml={2}>Read more</MotionBadge>*/}
+        <Flex overflow='hidden' direction='column' alignItems='flex-start' justifyContent='space-between' mt={1}>
+          <Text fontSize={sm} fontWeight={600}>{project.name}</Text>
+          <Text lineHeight={1.2} fontSize={sm} fontWeight={400} color='blackAlpha.800'>{project.company}</Text>
         </Flex>
       </MotionBox >
     </Link >
