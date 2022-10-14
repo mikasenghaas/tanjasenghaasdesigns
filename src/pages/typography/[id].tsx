@@ -61,6 +61,9 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
               layout='fill'
               objectFit='cover'
               style={{ borderRadius: '20px' }}
+              placeholder='blur'
+              blurDataURL={`/assets/typography/${id}/${id}0.jpg`}
+              priority
             />
           </AspectRatio>
         </Flex>

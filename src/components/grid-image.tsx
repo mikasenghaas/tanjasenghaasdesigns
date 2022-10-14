@@ -38,6 +38,9 @@ const GridImage = ({ project, type }: GridImageProps) => {
               alt={`${project.id}-preview`}
               layout='fill'
               objectFit='cover'
+              placeholder='blur'
+              blurDataURL={`/assets/${dir}/${project.id}/${project.id}0.jpg`}
+              priority
             />
           </MotionBox>
         </AspectRatio>

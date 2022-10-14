@@ -62,6 +62,9 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
                     layout='fill'
                     objectFit='cover'
                     style={{ borderRadius: '20px' }}
+                    placeholder='blur'
+                    blurDataURL={`/assets/magazines/${id}/${id}${num}.jpg`}
+                    priority
                   />
                 </AspectRatio>
               )
