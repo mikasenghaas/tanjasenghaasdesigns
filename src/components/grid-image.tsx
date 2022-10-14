@@ -16,30 +16,25 @@ interface GridImageProps {
 }
 
 const GridImage = ({ project, type }: GridImageProps) => {
-  const { sm, md } = useResponsiveFontSize()
-  const dir = type === 'magazine' ? 'magazines' : 'typography'
+  const { sm } = useResponsiveFontSize()
 
-  const opacityIn = {
-    rest: { opacity: 0, },
-    hover: { opacity: 1 },
-  };
   const scaleUp = {
     rest: { scale: 1, },
     hover: { scale: 1.05 },
   }
 
   return (
-    <Link href={type === 'magazine' ? `/magazines/${project.id}` : `/typography/${project.id}`}>
+    <Link href={`/${type}/${project.id}`}>
       <MotionBox initial='rest' whileHover='hover' _hover={{ cursor: 'pointer' }} >
-        <AspectRatio ratio={1} border={type !== 'magazine' ? '1px solid black' : ''} overflow='hidden' borderRadius={10}>
+        <AspectRatio ratio={1} border={type === 'typography' ? '1px solid black' : ''} overflow='hidden' borderRadius={10}>
           <MotionBox position='relative' variants={scaleUp} borderRadius={10}>
             <Image
-              src={`/assets/${dir}/${project.id}/${project.id}0.jpg`}
+              src={`/assets/${type}/${project.id}/${project.id}0.jpg`}
               alt={`${project.id}-preview`}
               layout='fill'
               objectFit='cover'
               placeholder='blur'
-              blurDataURL={`/assets/${dir}/${project.id}/${project.id}0.jpg`}
+              blurDataURL={`/assets/${type}/${project.id}/${project.id}0.jpg`}
               priority
             />
           </MotionBox>
