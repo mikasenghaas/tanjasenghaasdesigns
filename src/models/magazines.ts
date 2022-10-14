@@ -21,7 +21,7 @@ const DATA: MagazineByIdProps = {
     name: "Wolf",
     date: new Date("2016"),
     position: "Art Direktion | Neuentwicklung",
-    company: "Verlagsgruppe Deutsche Medien-Manufaktur (DMM)",
+    company: "Deutsche Medien-Manufaktur",
     description: ["Das innovative Heftkonzept von WOLF steht für Entschleunigung, Achtsamkeit und Inspiration – für Männer. Das Magazin ist ein Special von FLOW und ist in der Verlagsgruppe Deutsche Medien-Manufaktur (DMM), einer Tochter von Gruner + Jahr und dem Landwirtschaftsverlag Münster erschienen.WOLF setzt auf Slow Journalism statt digitaler Eile. Das Magazin ist ein haptisches und visuelles Erlebnis, arbeitet mit aufwendigen, großformatigen Illustrationen und Fotografien sowie Papierwechseln. Als Extra enthält diese erste Ausgabe ein Retro-Autoquartett zum Herausnehmen sowie die preisgekrönte Reportage der New York Times „Verschollen im Ozean“ in Buchform."],
     numImages: 6
   },
@@ -39,7 +39,7 @@ const DATA: MagazineByIdProps = {
     name: "Holly",
     date: new Date("2019"),
     position: "Art Direktion | Neuentwicklung",
-    company: "Verlagsgruppe Deutsche Medien-Manufaktur (DMM)",
+    company: "Deutsche Medien-Manufaktur",
     description: ["Immer mehr Verlage setzten auf einen neuen Trend im Printgeschäft: Influencer-Magazine. Der Verlag startete mit der Bloggerin Holly Becker als Testimonial den neuen Einrichtungstitel Living at Home + Holly. Das Magazin spiegelt die persönliche Note von Holly Becker wider. Sie lässt in vielen Beiträgen ihre Meinung und Sichtweise einfließen. Das Magazin besticht durch seine opulenten Aufmacher und einen ganz eigenen Look."],
     numImages: 6
   },
@@ -66,7 +66,7 @@ const DATA: MagazineByIdProps = {
     name: "Landlust Zuhaus",
     date: new Date("2021"),
     position: "Art Direktion | Redesign",
-    company: "Verlagsgruppe Deutsche Medien-Manufaktur (DMM) ",
+    company: "Deutsche Medien-Manufaktur ",
     description: ["Landlust Zuhaus ist das Wohnmagazin der Zeitschrift LANDLUST. Mit der Ausgabe 01/2021 wurde das Wohnmagazin Landlust Zuhaus mit modernem Layout frisch renoviert und erweitertem Themenspektrum ergänzt."],
     numImages: 6
   },
@@ -75,7 +75,7 @@ const DATA: MagazineByIdProps = {
     name: "Einfach Hausgemacht",
     date: new Date("2021"),
     position: "Art Direktion | Redesign",
-    company: "Verlagsgruppe Deutsche Medien-Manufaktur (DMM) ",
+    company: "Deutsche Medien-Manufaktur",
     description: ["Einfach Hausgemacht ist ein Magazin mit kreativen Rezeptideen, Do-It-Yourself-Bastel- und Dekotipps und praktischem Haushaltswissen aus der Landlust-Familie. Schwerpunkt von Einfach Hausgemacht ist Kochen und Essen. Es ist eine hochwertige, detailverliebt gestaltete und getexte, eigenständige Zeitschrift. "],
     numImages: 5
   },
