@@ -6,28 +6,35 @@ import { Flex, Box, Heading, Text } from '@chakra-ui/react'
 import Layout from '@/components/layout'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
-import vitaItems, { VitaItem } from '@/models/vita'
+import { vitaItems, educationItems, VitaItem } from '@/models/vita'
 import customers, { Customer } from '@/models/customers'
 
 const VitaEntry = ({ vitaItem }: { vitaItem: VitaItem }) => {
-  const { md } = useResponsiveFontSize()
+  const { sm, md } = useResponsiveFontSize()
+
+  const formatEndDate = (s: string | Date | undefined) => {
+    if (!s) { return }
+    if (typeof s === 'string') { return s }
+    return s.getFullYear()
+  }
 
   return (
-    <Flex mb={5} maxWidth='90%'>
+    <Flex mb={8} maxWidth='90%'>
       <Box flex={1}>
         <Flex>
           {vitaItem.startDate &&
-            <Text fontSize={md} fontStyle='italic'>{vitaItem.startDate.getFullYear()}</Text>
+            <Text fontSize={sm} fontStyle='italic'>{vitaItem.startDate.getFullYear()}</Text>
           }
           {vitaItem.endDate &&
-            <Text fontSize={md} fontStyle='italic'>-</Text>
+            <Text fontSize={sm} fontStyle='italic'>-</Text>
           }
         </Flex>
-        <Text fontSize={md} fontStyle='italic'> {vitaItem.endDate?.getFullYear()}</Text>
+        <Text fontSize={sm} fontStyle='italic'> {formatEndDate(vitaItem.endDate)}</Text>
       </Box>
       <Box flex={5}>
         <Text fontWeight={600} fontSize={md}>{vitaItem.title}</Text>
-        {vitaItem.description?.map((line: string, i: number) => <Text key={i} fontSize={md}>{line}</Text>)}
+        {vitaItem.description?.map((line: string, i: number) => <Text key={i} fontSize={md} lineHeight={1.4}>{line}</Text>)}
+        <Text fontSize={sm} fontWeight={400} fontStyle='italic' color='blackAlpha.700' mb={1}>{vitaItem.company}</Text>
       </Box>
     </Flex>
   )
@@ -45,7 +52,7 @@ const Vita: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout heroUrl='/assets/hero/vita.jpg'>
+      <Layout heroUrl='/assets/hero/kontakt.jpg'>
         <Flex pt={20} direction={{ base: 'column-reverse', md: 'row' }}>
           <Box flex={2}>
             <Flex maxWidth='90%'>
@@ -58,8 +65,27 @@ const Vita: NextPage = () => {
                   <VitaEntry key={i} vitaItem={vitaItem} />
                 )
               })
-
             }
+            <Flex maxWidth='90%'>
+              <Box flex={1} />
+              <Heading flex={5} fontSize={lg} mb={5} mt={20}>Ausbildung</Heading>
+            </Flex>
+            {
+              educationItems.map((educationItem: VitaItem, i: number) => {
+                return (
+                  <VitaEntry key={i} vitaItem={educationItem} />
+                )
+              })
+            }
+            <Flex maxWidth='90%'>
+              <Box flex={1} />
+              <Box flex={5} mt={20}>
+                <Heading fontSize={lg} mb={5}>Sprachen</Heading>
+                <Text>Deutsch (Muttersprache)</Text>
+                <Text>Englisch (fließend))</Text>
+                <Text>Französisch (basis)</Text>
+              </Box>
+            </Flex>
           </Box>
           <Flex flex={1} direction='column' alignItems='flex-end'>
             <Heading fontSize={lg} mb={5} textAlign={{ base: 'left', md: 'right' }}>Ausgewählte Kunden</Heading>
