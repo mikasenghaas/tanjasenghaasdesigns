@@ -1,22 +1,29 @@
+import Image from 'next/image'
 import React, { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 
 import { Flex, Box, Text } from '@chakra-ui/react'
 
-import Banner from '@/components/banner'
-import PageContainer from '@/components/page-container'
 import customerQuotes, { Quote } from '@/models/quotes'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const QuoteBox = ({ quote }: { quote: Quote }) => {
-  const { sm, md, lg } = useResponsiveFontSize()
+  const { sm, lg, xl } = useResponsiveFontSize()
 
   return (
-    <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='center' px={{ base: 0, md: 10 }} >
-      <Text fontSize={lg} textAlign='center'>{quote.text}</Text>
-      <Text fontSize={md} fontWeight={600} textAlign='center' mt={10}>{quote.author}</Text>
-      <Text fontSize={sm} fontWeight={400} textAlign='center' minWidth='50%'>{quote.authorPosition}, {quote.authorCompany}</Text>
+    <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='start' px={{ base: 0, md: 10 }} >
+      <Image
+        src={`/assets/quotes/${quote.author.toLowerCase().replaceAll(' ', '-')}.jpg`}
+        alt={`${quote.author}-picture`}
+        height='80px'
+        width='80px'
+        style={{ borderRadius: '50%' }}
+        objectFit='cover'
+      />
+      <Text color='black' fontSize={lg} fontWeight={600} textAlign='center' mt={5}>{quote.author}</Text>
+      <Text fontSize={sm} fontWeight={500} color='blackAlpha.600' textAlign='center' minWidth='50%' mb={10}>{quote.authorPosition}, {quote.authorCompany}</Text>
+      <Text fontSize={xl} fontWeight={500} textAlign='center'>{quote.text}</Text>
     </Flex>
   )
 }
@@ -42,19 +49,19 @@ const EmblaCarousel = () => {
   }, [embla, onSelect]);
 
   return (
-      <Box bgColor='blackAlpha.300' borderRadius={10}>
-        <Box ref={emblaRef} overflow='hidden'>
-          <Box display="flex" mt={5}>
-            {customerQuotes.map((quote: Quote, index: number) => {
-              return (
-                <QuoteBox
-                  key={index}
-                  quote={quote}
-                />
-              );
-            })}
-          </Box>
+    <Box>
+      <Box ref={emblaRef} overflow='hidden'>
+        <Box display="flex" mt={5} >
+          {customerQuotes.map((quote: Quote, index: number) => {
+            return (
+              <QuoteBox
+                key={index}
+                quote={quote}
+              />
+            );
+          })}
         </Box>
+      </Box>
 
       <Flex justifyContent="center" alignItems="center" mt={10}>
         {customerQuotes.map((_: Quote, index: number) => {
@@ -69,7 +76,7 @@ const EmblaCarousel = () => {
               bgColor={
                 current === index
                   ? "black"
-                  : "white"
+                  : "blackAlpha.500"
               }
               _hover={{ cursor: "pointer" }}
               onClick={() => scrollTo(index)}
@@ -77,7 +84,7 @@ const EmblaCarousel = () => {
           );
         })}
       </Flex>
-      </Box >
+    </Box >
   )
 }
 
