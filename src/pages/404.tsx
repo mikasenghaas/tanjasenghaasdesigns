@@ -14,7 +14,7 @@ const NotFound: NextPage = () => {
   return (
     <>
       <Head>
-        <title>404 | Tanja Senghaas</title>
+        <title>404 | Tanja Senghaas Designs.</title>
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

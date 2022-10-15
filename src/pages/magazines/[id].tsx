@@ -41,7 +41,7 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
   return (
     <>
       <Head>
-        <title>{name} | Tanja Senghaas</title>
+        <title>{name} | Tanja Senghaas Designs.</title>
         <meta name={`${name} | Tanja Senghaas Designs`} content={`${name} | ${description}`} />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />

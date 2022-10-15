@@ -15,7 +15,7 @@ const Contact: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Kontakt | Tanja Senghaas</title>
+        <title>Kontakt | Tanja Senghaas Designs.</title>
         <meta name="Kontakt | Tanja Senghaas" content="Treten Sie mit Tanja Senghaas über e-Mail oder Social Media Kanäle in Kontakt." />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
