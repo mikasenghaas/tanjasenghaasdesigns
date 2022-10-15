@@ -5,7 +5,8 @@ import Chakra from '@/components/chakra'
 import Layout from '@/components/layout'
 import theme from '@/lib/theme'
 
-function App({ Component, pageProps }: AppProps) {
+interface pageProps { cookies: string }
+function App({ Component, pageProps }: AppProps<pageProps>) {
   return (
     <Chakra theme={theme} cookies={pageProps.cookies}>
       <Layout>
