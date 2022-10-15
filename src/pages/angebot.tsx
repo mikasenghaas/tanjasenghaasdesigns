@@ -10,13 +10,12 @@ import {
   Heading,
   Text
 } from '@chakra-ui/react'
-import Layout from '@/components/layout'
 
 import serviceItems, { Service } from '@/models/services'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
 const Angebot: NextPage = () => {
-  const { sm, md, lg } = useResponsiveFontSize();
+  const { sm, md, xl } = useResponsiveFontSize();
 
   return (
     <>
@@ -28,7 +27,7 @@ const Angebot: NextPage = () => {
       </Head>
 
       <Box pt={40}>
-        <Heading fontSize={lg} mb={5}>Mein Angebot</Heading>
+        <Heading fontSize={xl} fontWeight={800} mb={5}>Mein Angebot</Heading>
         <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap='50px 10px' mt={10}>
           {
             serviceItems.map((service: Service, i: number) => {

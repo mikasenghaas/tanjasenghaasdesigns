@@ -47,7 +47,7 @@ const Home: NextPage = () => {
             typography.map((typographyProject: Typography) => <GridImage key={typographyProject.id} project={typographyProject} type='typography' />)
           }
         </Grid>
-        <Heading fontSize={xl} mt={20} mb={10}>Kunden-Feedback</Heading>
+        <Heading fontSize={xl} fontWeight={800} mt={20} mb={10}>Kunden-Feedback</Heading>
         <EmblaCarousel />
       </Box>
     </>

@@ -9,7 +9,7 @@ import { useResponsiveFontSize } from '@/lib/responsive'
 import useThemeColors from '@/lib/useThemeColors'
 
 const Contact: NextPage = () => {
-  const { sm, md, lg } = useResponsiveFontSize()
+  const { sm, md, lg, xl } = useResponsiveFontSize()
   const { primary, secondary } = useThemeColors()
 
   return (
@@ -23,14 +23,14 @@ const Contact: NextPage = () => {
 
       <Flex pt={40} direction={{ base: 'column', md: 'row' }} justify={{ base: 'left', md: 'space-between' }}>
         <Box>
-          <Heading fontSize={lg} mb={10} color={primary}>Kontakt</Heading>
-          <Heading fontSize={lg} fontWeight={900} color={primary} mb={5}>Tanja Senghaas Designs.</Heading>
+          <Heading fontSize={xl} fontWeight={800} mb={10} color={primary}>Kontakt</Heading>
+          <Heading fontSize={lg} fontWeight={700} color={primary} mb={5}>Tanja Senghaas Designs.</Heading>
           <Flex>
             <Text color={secondary} mr={1}>Sag Hallo</Text>
             <ExternalLink href='mailto:tanja.senghaas@web.de' isExternal><Text fontSize={md}>tanja.senghaas@web.de</Text></ExternalLink>
           </Flex>
           <Flex>
-            <Text color={secondary} mr={1}>Oder ruf an</Text>
+            <Text color={secondary} mr={1}>Ruf an</Text>
             <ExternalLink href='tel:+4915122543476'><Text fontSize={md}>+49 (0) 151 22543476</Text></ExternalLink>
           </Flex>
           <Divider my={5} />
@@ -44,7 +44,7 @@ const Contact: NextPage = () => {
           </Flex>
         </Box>
         <Box color={secondary} >
-          <Heading color={primary} fontSize={lg} mb={10} mt={{ base: 20, md: 0 }}>Danke!</Heading>
+          <Heading color={primary} fontSize={xl} fontWeight={800} mb={10} mt={{ base: 20, md: 0 }}>Danke!</Heading>
           <Heading fontSize={sm} fontWeight={900}>Nele Martensen</Heading>
           <Text mb={5} fontSize={sm}>für die schönen Fotos dieser Website</Text>
           <ExternalLink href='https://www.nele-martensen.de' isExternal><Text fontSize={sm}>nele-martensen.de</Text></ExternalLink>

@@ -8,10 +8,10 @@ export interface VitaItem {
 
 const vitaItems: VitaItem[] = [
   {
-    startDate: new Date("2019"),
-    endDate: 'Heute',
-    title: "Selbstständige Kreativ Direktorin (Tanja Senghaas Designs.)",
-    description: ["Ausgewählte Projekte in den letzten Jahren:"]
+    startDate: new Date("2015"),
+    endDate: 'heute',
+    title: "Tanja Senghaas Designs.",
+    description: ["Ausgewählte Projekte:"]
   },
   {
     title: "Art Direktion",
@@ -35,7 +35,7 @@ const vitaItems: VitaItem[] = [
   },
   {
     title: "Art Direktion",
-    description: ["Grafische und konzeptionelle Entwicklung des neuen Naturmagazins Wohllebens Welt.", "Leitung der Grafik- und Bildredaktion."],
+    description: ["Grafische und konzeptionelle Entwicklung des neuen Naturmagazins 'Wohllebens Welt'.", "Leitung der Grafik- und Bildredaktion."],
     company: "Gruner+Jahr, Hamburg"
   },
   {
@@ -56,7 +56,7 @@ const vitaItems: VitaItem[] = [
   {
     startDate: new Date("2001"),
     endDate: new Date("2015"),
-    title: "Stellvertrende Art Direktion",
+    title: "Stellvertretende Art Direktion",
     description: ["Stellvertretende Leitung der Grafik- und Bildabteilung des stern. Grafischer Relaunch des Magazins.", "Währenddessen: Grafische und konzeptionelle Entwicklung des Gesundheitsmagazins stern Gesund Leben / Grafische Leitung des stern eMags / Online Magazin / Entwicklung mehrer Onlinemagazine in Zusammenarbeit mit der Print- und Oblineabteilung des stern"],
     company: "Gruner+Jahr, Hamburg"
   },
@@ -65,21 +65,21 @@ const vitaItems: VitaItem[] = [
     endDate: new Date("2000"),
     title: "Art Direktion",
     description: ["Grafische und konzeptionelle Entwicklung des Lifestylemagazins 'Modern Living'.", "Leitung der Grafik- und Bilredaktion"],
-    company: "Motorpresse, Stuttgart"
+    company: "Motorpresse, Hamburg"
   },
   {
     startDate: new Date("1997"),
     endDate: new Date("1999"),
     title: "Stellvertretende Art Direktion",
-    description: ["Grafische und konzeptionelle Entwicklung des Lifestylemagazins 'Womens Sports and Fitness'.", "Leitung der Grafik- und Bilredaktion"],
+    description: ["Grafische und konzeptionelle Entwicklung des Lifestylemagazins 'Womens Sports and Fitness'.", "Leitung der Grafik- und Bildredaktion"],
     company: "Conde Nast Publications, New York, USA"
   },
   {
     startDate: new Date("1997"),
     endDate: new Date("1999"),
     title: "Grafik Design",
-    description: ["Grafische Gestaltung der deutschen Ausgabe von dem Männermagazin Men's Health"],
-    company: "Motorpresse, Stuttgart"
+    description: ["Grafische Gestaltung der deutschen Ausgabe des Männermagazins 'Men's Health'"],
+    company: "Motorpresse, Hamburg"
   }
 ]
 

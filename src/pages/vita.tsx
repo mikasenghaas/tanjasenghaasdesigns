@@ -3,7 +3,6 @@ import Head from 'next/head'
 
 import { Flex, Box, Heading, Text } from '@chakra-ui/react'
 
-import Layout from '@/components/layout'
 import { useResponsiveFontSize } from '@/lib/responsive'
 import useThemeColors from '@/lib/useThemeColors'
 
@@ -43,7 +42,7 @@ const VitaEntry = ({ vitaItem }: { vitaItem: VitaItem }) => {
 }
 
 const Vita: NextPage = () => {
-  const { md, lg } = useResponsiveFontSize()
+  const { md, lg, xl } = useResponsiveFontSize()
 
   return (
     <>
@@ -58,7 +57,7 @@ const Vita: NextPage = () => {
         <Box flex={2}>
           <Flex maxWidth='90%'>
             <Box flex={1} />
-            <Heading flex={5} fontSize={lg} mb={5} mt={{ base: 20, sm: 0 }}>Vita</Heading>
+            <Heading flex={5} fontSize={xl} fontWeight={800} mb={5} mt={{ base: 20, sm: 0 }}>Vita</Heading>
           </Flex>
           {
             vitaItems.map((vitaItem: VitaItem, i: number) => {
@@ -78,18 +77,9 @@ const Vita: NextPage = () => {
               )
             })
           }
-          <Flex maxWidth='90%'>
-            <Box flex={1} />
-            <Box flex={5} mt={20}>
-              <Heading fontSize={lg} mb={5}>Sprachen</Heading>
-              <Text>Deutsch (Muttersprache)</Text>
-              <Text>Englisch (fließend))</Text>
-              <Text>Französisch (basis)</Text>
-            </Box>
-          </Flex>
         </Box>
         <Flex flex={1} direction='column' alignItems='flex-end'>
-          <Heading fontSize={lg} mb={5} textAlign={{ base: 'left', md: 'right' }}>Ausgewählte Kunden</Heading>
+          <Heading fontSize={xl} fontWeight={800} mb={5} textAlign={{ base: 'left', md: 'right' }}>Ausgewählte Kunden</Heading>
           {customers.map((customer: Customer) => {
             return (
               <Text key={customer.name} fontSize={md} textAlign={{ base: 'left', md: 'right' }}>
