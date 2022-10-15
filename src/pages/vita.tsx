@@ -52,8 +52,7 @@ const Vita: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout heroUrl='/assets/hero/kontakt.jpg'>
-        <Flex pt={20} direction={{ base: 'column-reverse', md: 'row' }}>
+        <Flex pt={40} direction={{ base: 'column-reverse', md: 'row' }}>
           <Box flex={2}>
             <Flex maxWidth='90%'>
               <Box flex={1} />
@@ -98,7 +97,6 @@ const Vita: NextPage = () => {
             }
           </Flex>
         </Flex>
-      </Layout>
     </>
   )
 }

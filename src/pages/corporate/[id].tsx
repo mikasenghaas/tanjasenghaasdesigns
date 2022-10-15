@@ -6,7 +6,6 @@ import Image from 'next/image'
 
 import { Box, Grid, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
-import Layout from '@/components/layout'
 import corporateById from '@/models/corporate'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
@@ -45,7 +44,6 @@ const CorporatePage: NextPage<Props> = ({ corporate }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
         <Box mt={40}>
           <Heading fontSize={lg}>{name}</Heading>
           <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
@@ -70,7 +68,6 @@ const CorporatePage: NextPage<Props> = ({ corporate }: Props) => {
             })}
           </Grid>
         </Box>
-      </Layout>
     </>
   )
 }

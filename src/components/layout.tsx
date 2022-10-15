@@ -1,41 +1,31 @@
 import { useRouter } from 'next/router'
-import { Box, Flex } from '@chakra-ui/react'
-
 import PageContainer from '@/components/page-container'
-import Hero from '@/components/hero'
-import { MotionBox } from '@/components/motion'
+import { Box } from '@chakra-ui/react'
 
+import { MotionBox } from '@/components/motion'
 import { AnimatePresence } from 'framer-motion'
 
 interface Props {
   children: React.ReactNode,
   heroUrl?: string
 }
-export default function Layout({ heroUrl, children }: Props) {
+export default function Layout({ children }: Props) {
   const router = useRouter()
 
-  const opacitySlow = {
-    initial: { y: 50, },
-    animate: { y: 0, transition: { duration: .5 } },
-    exit: { y: 50, transition: { duration: 1 } }
-  }
-
+  console.log(router.asPath)
   return (
-    <AnimatePresence initial={true} mode='wait'>
+    <AnimatePresence>
       <MotionBox
-        key={router.pathname}
-        initial='initial'
-        animate='animate'
-        exit='exit'
+        key={router.asPath}
+        w='100%'
+        animate={{ opacity: 1, transition: { duration: .5 } }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0, transition: { duration: .5 } }}
       >
-        {heroUrl && <Hero url={heroUrl} alt='hero-image' />}
-        <MotionBox w='100%' bgColor='white' variants={opacitySlow}>
-          <PageContainer >
-            {children}
-          </PageContainer>
-
-        </MotionBox>
+        <PageContainer>
+          {children}
+        </PageContainer>
       </MotionBox>
-    </AnimatePresence>
+    </AnimatePresence >
   )
 }

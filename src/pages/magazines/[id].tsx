@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 import { Box, Grid, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
-import Layout from '@/components/layout'
 import magazinesById from '@/models/magazines'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
@@ -46,32 +45,30 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Box mt={40}>
-          <Heading fontSize={lg}>{name}</Heading>
-          <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
-          <Text fontSize={md} mt={5} maxWidth={{ sm: '75%' }}>{description}</Text>
-          <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
-          <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={5} mt={20}>
-            {Array.from({ length: numImages }, (_, num: number) => {
-              return (
-                <AspectRatio key={num} ratio={1} borderRadius={10}>
-                  <Image
-                    src={`/assets/magazines/${id}/${id}${num}.jpg`}
-                    alt={`${id}-${num}`}
-                    layout='fill'
-                    objectFit='cover'
-                    style={{ borderRadius: '20px' }}
-                    placeholder='blur'
-                    blurDataURL={`/assets/magazines/${id}/${id}${num}.jpg`}
-                    priority
-                  />
-                </AspectRatio>
-              )
-            })}
-          </Grid>
-        </Box>
-      </Layout>
+      <Box mt={40}>
+        <Heading fontSize={lg}>{name}</Heading>
+        <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
+        <Text fontSize={md} mt={5} maxWidth={{ sm: '75%' }}>{description}</Text>
+        <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
+        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={5} mt={20}>
+          {Array.from({ length: numImages }, (_, num: number) => {
+            return (
+              <AspectRatio key={num} ratio={1} borderRadius={10}>
+                <Image
+                  src={`/assets/magazines/${id}/${id}${num}.jpg`}
+                  alt={`${id}-${num}`}
+                  layout='fill'
+                  objectFit='cover'
+                  style={{ borderRadius: '20px' }}
+                  placeholder='blur'
+                  blurDataURL={`/assets/magazines/${id}/${id}${num}.jpg`}
+                  priority
+                />
+              </AspectRatio>
+            )
+          })}
+        </Grid>
+      </Box>
     </>
   )
 }

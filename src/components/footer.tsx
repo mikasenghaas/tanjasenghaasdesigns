@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <Box mt="auto" pt={20}>
       <PageContainer>
-
         <Divider />
         <Flex
           justifyContent="center"

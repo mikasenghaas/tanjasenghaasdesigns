@@ -27,8 +27,7 @@ const Angebot: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Box mt={40}>
+        <Box pt={40}>
           <Heading fontSize={lg} mb={5}>Mein Angebot</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap='50px 10px' mt={10}>
             {
@@ -55,7 +54,6 @@ const Angebot: NextPage = () => {
             }
           </Grid>
         </Box>
-      </Layout>
     </>
   )
 }

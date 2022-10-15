@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 import { Flex, Box, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
-import Layout from '@/components/layout'
 import typographyById from '@/models/typography'
 import { useResponsiveFontSize } from '@/lib/responsive'
 
@@ -46,28 +45,26 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Flex mt={40} direction={{ base: 'column', sm: 'row' }}>
-          <Box flex={2} mb={10}>
-            <Heading fontSize={lg}>{name}</Heading>
-            <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
-            <Text fontSize={md} mt={5} flex={2}>{description}</Text>
-            <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
-          </Box>
-          <AspectRatio flex={1} ratio={1}>
-            <Image
-              src={`/assets/typography/${id}/${id}0.jpg`}
-              alt={`${id}`}
-              layout='fill'
-              objectFit='cover'
-              style={{ borderRadius: '20px' }}
-              placeholder='blur'
-              blurDataURL={`/assets/typography/${id}/${id}0.jpg`}
-              priority
-            />
-          </AspectRatio>
-        </Flex>
-      </Layout >
+      <Flex mt={40} direction={{ base: 'column', sm: 'row' }}>
+        <Box flex={2} mb={10}>
+          <Heading fontSize={lg}>{name}</Heading>
+          <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
+          <Text fontSize={md} mt={5} flex={2}>{description}</Text>
+          <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
+        </Box>
+        <AspectRatio flex={1} ratio={1}>
+          <Image
+            src={`/assets/typography/${id}/${id}0.jpg`}
+            alt={`${id}`}
+            layout='fill'
+            objectFit='cover'
+            style={{ borderRadius: '20px' }}
+            placeholder='blur'
+            blurDataURL={`/assets/typography/${id}/${id}0.jpg`}
+            priority
+          />
+        </AspectRatio>
+      </Flex>
     </>
   )
 }
