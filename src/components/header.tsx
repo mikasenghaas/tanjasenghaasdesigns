@@ -1,15 +1,16 @@
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {
   Flex,
   Text,
-  Heading,
   Link as ChakraLink,
   Menu,
   MenuList,
   MenuItem,
   MenuButton,
-  IconButton
+  IconButton,
+  Box
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
@@ -19,16 +20,24 @@ import { MotionBox, MotionFlex, MotionHeading } from '@/components/motion'
 
 import useWindowDimensions from "@/lib/useWindowSize";
 import { useResponsiveFontSize } from '@/lib/responsive'
-import { capitalise } from "@/lib/helpers"
+import { capitalise, routeToMenuItem } from "@/lib/helpers"
 
 function Navbar() {
+  const menuItems: string[] = ['projekte', 'angebot', 'vita', 'kontakt']
   const router = useRouter()
-  const { width } = useWindowDimensions();
-  const menuItems: string[] = ['angebot', 'vita', 'kontakt']
 
-  const isActiveLink = (path: string, linkName: string) => {
-    return path.includes(linkName)
-  }
+  const [focused, setFocused] = useState<string>('')
+  const [selected, setSelected] = useState<string>(routeToMenuItem(router.pathname, menuItems))
+
+  const { width } = useWindowDimensions();
+
+  useEffect(() => {
+    if (router.pathname === '/') {
+      setSelected('')
+    }
+
+  }, [router.pathname])
+
 
   const anchorLink = async (id: string) => {
     if (router.pathname !== '/') {
@@ -46,9 +55,33 @@ function Navbar() {
 
   if (width > 800) {
     return (
-      <Flex>
+      <Flex onMouseLeave={() => setFocused('')}>
         <Menu>
-          <MenuButton color='blackAlpha.700' _hover={{ cursor: 'pointer', color: 'black' }}>
+          <MenuButton
+            mx={2}
+            position='relative'
+            onMouseEnter={() => setFocused('projekte')}
+            onFocus={() => setFocused('projekte')}
+          >
+            {focused === 'projekte' &&
+              <MotionBox
+                position='absolute'
+                top='-20%'
+                left='-10%'
+                h='140%'
+                w='120%'
+                bgColor='blackAlpha.200'
+                borderRadius={5}
+                zIndex={-1}
+                transition={{
+                  layout: {
+                    duration: 0.3,
+                    ease: 'easeOut',
+                  },
+                }}
+                layoutId='highlight'
+              />
+            }
             <Flex alignItems='center' mx={2}>
               <ChevronDownIcon />
               <Text>Projekte</Text>
@@ -67,24 +100,60 @@ function Navbar() {
           </MenuList>
         </Menu>
         {
-          menuItems.map((menuItem: string) => {
+          menuItems.slice(1, menuItems.length).map((menuItem: string) => {
             return (
-              <Link href={`/${menuItem}`} key={menuItem} >
-                <Flex direction='column' mx={2}>
-                  <ChakraLink variant='link' color={isActiveLink(router.pathname, menuItem) ? 'black' : 'blackAlpha.700'} _hover={{ textDecoration: 'none', color: 'black' }}>
+              <Box
+                position='relative'
+                key={menuItem}
+                mx={2}
+                onMouseEnter={() => setFocused(menuItem)}
+                onFocus={() => setFocused(menuItem)}
+                onClick={() => setSelected(menuItem)}
+              >
+                <Link href={`/${menuItem}`} passHref>
+                  <ChakraLink _hover={{ textDecoration: 'none' }}>
                     {capitalise(menuItem)}
                   </ChakraLink>
-                  {isActiveLink(router.pathname, menuItem) &&
-                    <MotionBox
-                      layoutId="navigation-underline"
-                      w='100%'
-                      h={.5}
-                      bgColor='black'
-                      animate
-                    />
-                  }
-                </Flex>
-              </Link>
+                </Link>
+                {focused === menuItem &&
+                  <MotionBox
+                    position='absolute'
+                    top='-20%'
+                    left='-10%'
+                    h='140%'
+                    w='120%'
+                    bgColor='blackAlpha.200'
+                    borderRadius={5}
+                    zIndex={-2}
+                    transition={{
+                      layout: {
+                        duration: 0.3,
+                        ease: 'easeOut',
+                      },
+                    }}
+                    layoutId='highlight'
+                  />
+                }
+                {selected === menuItem &&
+                  <MotionBox
+                    position='absolute'
+                    top='-20%'
+                    left='-10%'
+                    h='140%'
+                    w='120%'
+                    bgColor='gray.100'
+                    borderRadius={5}
+                    zIndex={-1}
+                    transition={{
+                      layout: {
+                        duration: 0.3,
+                        ease: 'easeOut',
+                      },
+                    }}
+                    layoutId='selected'
+                  />
+                }
+              </Box>
             )
           })
         }
@@ -110,7 +179,7 @@ function Navbar() {
             Typografie
           </MenuItem>
           {
-            menuItems.map((menuItem: string) => {
+            menuItems.slice(1, menuItems.length).map((menuItem: string) => {
               return (
                 <Link href={`${menuItem}`} key={menuItem} >
                   <MenuItem key={menuItem}>
@@ -128,7 +197,7 @@ function Navbar() {
 }
 
 export default function Header() {
-  const { md, lg, xl } = useResponsiveFontSize()
+  const { md, xl } = useResponsiveFontSize()
 
   const logoAnimation = {
     rest: {
@@ -145,6 +214,7 @@ export default function Header() {
   return (
     <Banner
       position="fixed"
+      top={0}
       zIndex={100}
       bg="whiteAlpha.200"
       height={20}
@@ -165,6 +235,6 @@ export default function Header() {
           <Navbar />
         </Flex>
       </PageContainer>
-    </Banner >
+    </Banner>
   );
 };
