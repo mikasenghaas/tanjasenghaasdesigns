@@ -10,26 +10,34 @@ import {
   MenuItem,
   MenuButton,
   IconButton,
-  Box
+  Box,
+  useColorMode,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 import PageContainer from "@/components/page-container";
 import Banner from "@/components/banner";
-import { MotionBox, MotionFlex, MotionHeading } from '@/components/motion'
+import ColorSwitch from '@/components/color-switch';
+import { MotionBox, MotionFlex, MotionIconButton, MotionHeading } from '@/components/motion'
 
 import useWindowDimensions from "@/lib/useWindowSize";
 import { useResponsiveFontSize } from '@/lib/responsive'
 import { capitalise, routeToMenuItem } from "@/lib/helpers"
+import useThemeColors from '@/lib/useThemeColors';
+
+import { AnimatePresence } from 'framer-motion'
 
 function Navbar() {
+  const { reversePrimary, secondary, tertiary, headerBgColor } = useThemeColors()
+  const { width } = useWindowDimensions();
   const menuItems: string[] = ['projekte', 'angebot', 'vita', 'kontakt']
   const router = useRouter()
 
   const [focused, setFocused] = useState<string>('')
   const [selected, setSelected] = useState<string>(routeToMenuItem(router.pathname, menuItems))
 
-  const { width } = useWindowDimensions();
 
   useEffect(() => {
     if (router.pathname === '/') {
@@ -38,6 +46,9 @@ function Navbar() {
 
   }, [router.pathname])
 
+  const { colorMode, toggleColorMode } = useColorMode()
+  const oppositeColorMode = useColorModeValue('dark', 'light')
+  const SwitchIcon = useColorModeValue(MoonIcon, SunIcon)
 
   const anchorLink = async (id: string) => {
     if (router.pathname !== '/') {
@@ -55,7 +66,7 @@ function Navbar() {
 
   if (width > 800) {
     return (
-      <Flex onMouseLeave={() => setFocused('')}>
+      <Flex onMouseLeave={() => setFocused('')} alignItems='center'>
         <Menu>
           <MenuButton
             mx={2}
@@ -70,7 +81,7 @@ function Navbar() {
                 left='-10%'
                 h='140%'
                 w='120%'
-                bgColor='blackAlpha.200'
+                bgColor={tertiary}
                 borderRadius={5}
                 zIndex={-1}
                 transition={{
@@ -122,7 +133,7 @@ function Navbar() {
                     left='-10%'
                     h='140%'
                     w='120%'
-                    bgColor='blackAlpha.200'
+                    bgColor={tertiary}
                     borderRadius={5}
                     zIndex={-2}
                     transition={{
@@ -141,7 +152,7 @@ function Navbar() {
                     left='-10%'
                     h='140%'
                     w='120%'
-                    bgColor='gray.100'
+                    bgColor={tertiary}
                     borderRadius={5}
                     zIndex={-1}
                     transition={{
@@ -157,47 +168,114 @@ function Navbar() {
             )
           })
         }
+        <Flex
+          position='relative'
+          h={8}
+          w={8}
+          alignItems='center'
+          justifyContent='center'
+          _hover={{ cursor: 'pointer' }}
+          onMouseEnter={() => setFocused('color-switch')}
+          aria-label={`Switch to ${oppositeColorMode} mode`}
+          onClick={toggleColorMode}
+        >
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <MotionFlex
+              key={colorMode}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 10, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              alignItems='center'
+              justifyContent='center'
+            >
+
+              <SwitchIcon h={3} />
+            </MotionFlex>
+          </AnimatePresence>
+          {focused === 'color-switch' &&
+            <MotionBox
+              position='absolute'
+              top='-5%'
+              left='-5%'
+              h='110%'
+              w='110%'
+              bgColor={tertiary}
+              borderRadius={5}
+              zIndex={-2}
+              transition={{
+                layout: {
+                  duration: 0.3,
+                  ease: 'easeOut',
+                },
+              }}
+              layoutId='highlight'
+            />
+          }
+        </Flex>
       </Flex >
     )
   } else {
     return (
-      <Menu>
-        <MenuButton
-          as={IconButton}
-          aria-label="Menu Options"
-          icon={<HamburgerIcon />}
-          variant="outline"
-        />
-        <MenuList my={2}>
-          <MenuItem onClick={() => anchorLink('magazines')}>
-            Magazinentwicklung
-          </MenuItem>
-          <MenuItem onClick={() => anchorLink('corporate')}>
-            Corporate Design
-          </MenuItem>
-          <MenuItem onClick={() => anchorLink('typography')}>
-            Typografie
-          </MenuItem>
-          {
-            menuItems.slice(1, menuItems.length).map((menuItem: string) => {
-              return (
-                <Link href={`${menuItem}`} key={menuItem} >
-                  <MenuItem key={menuItem}>
-                    {capitalise(menuItem)}
-                  </MenuItem>
-                </Link>
-              )
-            })
+      <Flex>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Menu Options"
+            icon={<HamburgerIcon />}
+            bgColor={tertiary}
+            _hover={{ bgColor: secondary }}
+            color={reversePrimary}
+          />
+          <MenuList my={2}>
+            <MenuItem onClick={() => anchorLink('magazines')}>
+              Magazinentwicklung
+            </MenuItem>
+            <MenuItem onClick={() => anchorLink('corporate')}>
+              Corporate Design
+            </MenuItem>
+            <MenuItem onClick={() => anchorLink('typography')}>
+              Typografie
+            </MenuItem>
+            {
+              menuItems.slice(1, menuItems.length).map((menuItem: string) => {
+                return (
+                  <Link href={`${menuItem}`} key={menuItem} >
+                    <MenuItem key={menuItem}>
+                      {capitalise(menuItem)}
+                    </MenuItem>
+                  </Link>
+                )
+              })
 
-          }
-        </MenuList>
-      </Menu>
+            }
+          </MenuList>
+        </Menu>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <MotionIconButton
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 40, opacity: 0 }}
+            transition={{ duration: 0.1 }}
+            key={colorMode}
+            aria-label={`Switch to ${oppositeColorMode} mode`}
+            marginLeft="2"
+            bgColor={tertiary}
+            _hover={{ bgColor: secondary }}
+            color={reversePrimary}
+            onClick={toggleColorMode}
+            icon={<SwitchIcon />}
+          />
+        </AnimatePresence>
+      </Flex>
+
     )
   }
 }
 
 export default function Header() {
-  const { md, xl } = useResponsiveFontSize()
+  const { xl } = useResponsiveFontSize()
+  const { headerBgColor } = useThemeColors()
 
   const logoAnimation = {
     rest: {
@@ -216,7 +294,7 @@ export default function Header() {
       position="fixed"
       top={0}
       zIndex={100}
-      bg="whiteAlpha.200"
+      bg={headerBgColor}
       height={20}
       backdropFilter="blur(10px)"
     >
@@ -235,6 +313,6 @@ export default function Header() {
           <Navbar />
         </Flex>
       </PageContainer>
-    </Banner>
+    </Banner >
   );
 };

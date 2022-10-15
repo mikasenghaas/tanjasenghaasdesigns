@@ -9,6 +9,7 @@ import { Flex, Box, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
 import typographyById from '@/models/typography'
 import { useResponsiveFontSize } from '@/lib/responsive'
+import useThemeColors from '@/lib/useThemeColors'
 
 export async function getStaticPaths() {
   const paths = Object.keys(typographyById).map((id: string) => { return { params: { id: id } } })
@@ -35,6 +36,7 @@ interface Props {
 const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
   const { id, name, description, position, company, date } = JSON.parse(magazine)
   const { sm, md, lg } = useResponsiveFontSize()
+  const { primary, secondary } = useThemeColors()
 
   return (
     <>
@@ -48,9 +50,9 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
       <Flex mt={40} direction={{ base: 'column', sm: 'row' }}>
         <Box flex={2} mb={10}>
           <Heading fontSize={lg}>{name}</Heading>
-          <Text fontSize={sm} fontWeight={500} color='gray'>{new Date(date).getFullYear()}, {position}</Text>
-          <Text fontSize={md} mt={5} flex={2}>{description}</Text>
-          <Text fontSize={sm} fontWeight={500} color='gray' mt={5}>{company}</Text>
+          <Text fontSize={sm} fontWeight={500} color={secondary}>{new Date(date).getFullYear()}, {position}</Text>
+          <Text fontSize={md} color={primary} mt={5} flex={2}>{description}</Text>
+          <Text fontSize={sm} fontWeight={500} color={secondary} mt={5}>{company}</Text>
         </Box>
         <AspectRatio flex={1} ratio={1}>
           <Image

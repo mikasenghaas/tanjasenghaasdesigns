@@ -7,9 +7,11 @@ import { Flex, Box, Text } from '@chakra-ui/react'
 
 import customerQuotes, { Quote } from '@/models/quotes'
 import { useResponsiveFontSize } from '@/lib/responsive'
+import useThemeColors from '@/lib/useThemeColors'
 
 const QuoteBox = ({ quote }: { quote: Quote }) => {
   const { sm, lg, xl } = useResponsiveFontSize()
+  const { primary, secondary } = useThemeColors()
 
   return (
     <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='start' px={{ base: 0, md: 10 }} >
@@ -21,9 +23,9 @@ const QuoteBox = ({ quote }: { quote: Quote }) => {
         style={{ borderRadius: '50%' }}
         objectFit='cover'
       />
-      <Text color='black' fontSize={lg} fontWeight={600} textAlign='center' mt={5}>{quote.author}</Text>
-      <Text fontSize={sm} fontWeight={500} color='blackAlpha.600' textAlign='center' minWidth='50%' mb={10}>{quote.authorPosition}, {quote.authorCompany}</Text>
-      <Text fontSize={xl} fontWeight={500} textAlign='center'>{quote.text}</Text>
+      <Text color={primary} fontSize={lg} fontWeight={600} textAlign='center' mt={5}>{quote.author}</Text>
+      <Text fontSize={sm} fontWeight={500} color={secondary} textAlign='center' minWidth='50%' mb={10}>{quote.authorPosition}, {quote.authorCompany}</Text>
+      <Text fontSize={xl} fontWeight={500} textAlign='center' color={primary}>{quote.text}</Text>
     </Flex>
   )
 }
@@ -31,6 +33,7 @@ const QuoteBox = ({ quote }: { quote: Quote }) => {
 const EmblaCarousel = () => {
   const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay()])
   const [current, setCurrent] = useState<number>(0);
+  const { primary, secondary } = useThemeColors()
 
   const scrollTo = useCallback(
     (index: number) => embla && embla.scrollTo(index),
@@ -75,8 +78,8 @@ const EmblaCarousel = () => {
               my={5}
               bgColor={
                 current === index
-                  ? "black"
-                  : "blackAlpha.500"
+                  ? primary
+                  : secondary
               }
               _hover={{ cursor: "pointer" }}
               onClick={() => scrollTo(index)}

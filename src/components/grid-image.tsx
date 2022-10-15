@@ -9,6 +9,7 @@ import {
 import type { Project } from '@/models/projects'
 import { MotionBox, MotionBadge } from '@/components/motion'
 import { useResponsiveFontSize } from '@/lib/responsive'
+import useThemeColors from '@/lib/useThemeColors'
 
 interface GridImageProps {
   project: Project,
@@ -16,6 +17,7 @@ interface GridImageProps {
 }
 
 const GridImage = ({ project, type }: GridImageProps) => {
+  const { primary, secondary } = useThemeColors()
   const { sm } = useResponsiveFontSize()
 
   const scaleUp = {
@@ -40,8 +42,8 @@ const GridImage = ({ project, type }: GridImageProps) => {
           </MotionBox>
         </AspectRatio>
         <Flex overflow='hidden' direction='column' alignItems='flex-start' justifyContent='space-between' mt={1}>
-          <Text fontSize={sm} fontWeight={600}>{project.name}</Text>
-          <Text lineHeight={1.2} fontSize={sm} fontWeight={400} color='blackAlpha.700'>{project.company}</Text>
+          <Text fontSize={sm} fontWeight={600} color={primary}>{project.name}</Text>
+          <Text lineHeight={1.2} fontSize={sm} fontWeight={400} color={secondary}>{project.company}</Text>
         </Flex>
       </MotionBox >
     </Link >
