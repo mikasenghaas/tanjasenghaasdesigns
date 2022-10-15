@@ -31,7 +31,7 @@ const QuoteBox = ({ quote }: { quote: Quote }) => {
 }
 
 const EmblaCarousel = () => {
-  const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay()])
+  const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })])
   const [current, setCurrent] = useState<number>(0);
   const { primary, secondary } = useThemeColors()
 
