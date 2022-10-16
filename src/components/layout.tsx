@@ -6,6 +6,7 @@ import Hero from '@/components/hero'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
+import { AnimatePresence } from 'framer-motion'
 import { MotionFlex, MotionBox } from '@/components/motion'
 import useThemeColors from '@/hooks/use-theme-colors'
 import { useAnimation } from 'framer-motion'
@@ -23,12 +24,12 @@ export default function Layout({ children }: Props) {
     if (router.pathname === '/') {
       controls.start({
         y: "90vh",
-        transition: { type: "ease-out", duration: .3 },
+        transition: { type: "ease-out", duration: .5 },
       })
     } else {
       controls.start({
         y: 0,
-        transition: { type: "ease-out", duration: .3 },
+        transition: { type: "ease-out", duration: .5 },
       })
 
     }
@@ -44,16 +45,18 @@ export default function Layout({ children }: Props) {
         minHeight='100vh'
         bgColor={bgColor}
       >
-        <MotionBox
-          key={router.asPath}
-          w='100%'
-          animate={{ opacity: 1, transition: { duration: .5 } }}
-          initial={{ opacity: 0 }}
-        >
-          <PageContainer>
-            {children}
-          </PageContainer>
-        </MotionBox>
+        <AnimatePresence mode='wait'>
+          <MotionBox
+            key={router.asPath}
+            w='100%'
+            animate={{ opacity: 1, transition: { duration: .5 } }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0, transition: { duration: .2 } }} >
+            <PageContainer>
+              {children}
+            </PageContainer>
+          </MotionBox>
+        </AnimatePresence>
         <Footer />
       </MotionFlex>
     </>
