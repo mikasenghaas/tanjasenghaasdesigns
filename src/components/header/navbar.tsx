@@ -146,7 +146,7 @@ export function NavbarMobile() {
           </MenuItem>
           {menuItems.slice(1, menuItems.length - 1).map((menuItem: string) => {
             return (
-              <NextLink href={`${menuItem}`} key={menuItem}>
+              <NextLink href={`/${menuItem}`} key={menuItem}>
                 <MenuItem key={menuItem}>{capitalise(menuItem)}</MenuItem>
               </NextLink>
             )
