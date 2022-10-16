@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { ScrollParallax } from 'react-just-parallax'
 import { Box } from '@chakra-ui/react'
 
 import PageContainer from '@/components/page-container'
 import { MotionHeading } from '@/components/motion'
-import useThemeColors from '@/lib/useThemeColors'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 interface HeroProps {
   url: string,

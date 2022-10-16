@@ -3,14 +3,14 @@ import Head from 'next/head'
 
 import { Flex, Box, Heading, Text } from '@chakra-ui/react'
 
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 import { vitaItems, educationItems, VitaItem } from '@/models/vita'
 import customers, { Customer } from '@/models/customers'
 
 const VitaEntry = ({ vitaItem }: { vitaItem: VitaItem }) => {
-  const { sm, md } = useResponsiveFontSize()
+  const { sm, md } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   const formatEndDate = (s: string | Date | undefined) => {
@@ -42,7 +42,7 @@ const VitaEntry = ({ vitaItem }: { vitaItem: VitaItem }) => {
 }
 
 const Vita: NextPage = () => {
-  const { md, lg, xl } = useResponsiveFontSize()
+  const { md, lg, xl } = useResponsiveFontSizes()
 
   return (
     <>

@@ -12,10 +12,10 @@ import {
 } from '@chakra-ui/react'
 
 import serviceItems, { Service } from '@/models/services'
-import { useResponsiveFontSize } from '@/lib/responsive'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
 
 const Angebot: NextPage = () => {
-  const { sm, md, xl } = useResponsiveFontSize();
+  const { sm, md, xl } = useResponsiveFontSizes();
 
   return (
     <>

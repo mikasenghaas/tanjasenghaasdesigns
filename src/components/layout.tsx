@@ -5,11 +5,10 @@ import PageContainer from '@/components/page-container'
 import Hero from '@/components/hero'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import ColorSwitch from '@/components/color-switch'
 
 import { MotionFlex, MotionBox } from '@/components/motion'
-import { AnimatePresence, useAnimation } from 'framer-motion'
-import useThemeColors from '@/lib/useThemeColors'
+import useThemeColors from '@/hooks/use-theme-colors'
+import { useAnimation } from 'framer-motion'
 
 interface Props {
   children: React.ReactNode,
@@ -44,7 +43,6 @@ export default function Layout({ children }: Props) {
         direction='column'
         minHeight='100vh'
         bgColor={bgColor}
-        borderRadius='20px 20px 0 0'
       >
         <MotionBox
           key={router.asPath}

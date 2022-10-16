@@ -8,8 +8,8 @@ import {
 
 import type { Project } from '@/models/projects'
 import { MotionBox, MotionBadge } from '@/components/motion'
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 interface GridImageProps {
   project: Project,
@@ -18,7 +18,7 @@ interface GridImageProps {
 
 const GridImage = ({ project, type }: GridImageProps) => {
   const { primary, secondary } = useThemeColors()
-  const { sm } = useResponsiveFontSize()
+  const { sm } = useResponsiveFontSizes()
 
   const scaleUp = {
     rest: { scale: 1, },

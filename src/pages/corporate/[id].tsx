@@ -6,9 +6,9 @@ import Image from 'next/image'
 
 import { Box, Grid, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
-import corporateById from '@/models/corporate'
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import corporateById from '@/models/projects/corporate'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 export async function getStaticPaths() {
   const paths = Object.keys(corporateById).map((id: string) => { return { params: { id: id } } })
@@ -29,12 +29,10 @@ export async function getStaticProps(context: any) {
   }
 }
 
-interface Props {
-  corporate: string
-}
+interface Props { corporate: string }
 const CorporatePage: NextPage<Props> = ({ corporate }: Props) => {
   const { id, name, description, position, company, date, numImages } = JSON.parse(corporate)
-  const { sm, md, lg } = useResponsiveFontSize()
+  const { sm, md, lg } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   return (

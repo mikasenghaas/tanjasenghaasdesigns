@@ -5,11 +5,11 @@ import { AiFillLinkedin } from 'react-icons/ai'
 import { FaXingSquare } from 'react-icons/fa'
 
 import ExternalLink from '@/components/external-link'
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 const Contact: NextPage = () => {
-  const { sm, md, lg, xl } = useResponsiveFontSize()
+  const { sm, md, lg, xl } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   return (

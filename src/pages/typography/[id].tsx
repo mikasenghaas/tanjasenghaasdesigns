@@ -7,9 +7,9 @@ import Image from 'next/image'
 
 import { Flex, Box, AspectRatio, Heading, Text } from '@chakra-ui/react'
 
-import typographyById from '@/models/typography'
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import typographyById from '@/models/projects/typography'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 export async function getStaticPaths() {
   const paths = Object.keys(typographyById).map((id: string) => { return { params: { id: id } } })
@@ -35,7 +35,7 @@ interface Props {
 }
 const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
   const { id, name, description, position, company, date } = JSON.parse(magazine)
-  const { sm, md, lg } = useResponsiveFontSize()
+  const { sm, md, lg } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   return (

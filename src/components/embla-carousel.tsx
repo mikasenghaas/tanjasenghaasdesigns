@@ -6,11 +6,11 @@ import Autoplay from 'embla-carousel-autoplay'
 import { Flex, Box, Text } from '@chakra-ui/react'
 
 import customerQuotes, { Quote } from '@/models/quotes'
-import { useResponsiveFontSize } from '@/lib/responsive'
-import useThemeColors from '@/lib/useThemeColors'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
+import useThemeColors from '@/hooks/use-theme-colors'
 
 const QuoteBox = ({ quote }: { quote: Quote }) => {
-  const { sm, lg, xl } = useResponsiveFontSize()
+  const { sm, lg, xl } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   return (

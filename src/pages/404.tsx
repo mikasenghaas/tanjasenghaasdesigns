@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { Box, Flex, Heading, Link as ChakraLink } from '@chakra-ui/react'
 import Layout from '@/components/layout'
 
-import { useResponsiveFontSize } from '@/lib/responsive'
+import useResponsiveFontSizes from '@/hooks/use-responsive-font-sizes'
 
 
 const NotFound: NextPage = () => {
-  const { md, xl } = useResponsiveFontSize()
+  const { md, xl } = useResponsiveFontSizes()
 
   return (
     <>
