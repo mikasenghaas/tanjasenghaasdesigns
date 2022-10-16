@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import { Flex, Box, Divider, Heading, Text } from '@chakra-ui/react'
 import { AiFillLinkedin } from 'react-icons/ai'
 import { FaXingSquare } from 'react-icons/fa'
@@ -29,10 +30,25 @@ const Contact: NextPage = () => {
         direction={{ base: 'column', md: 'row' }}
         justify={{ base: 'left', md: 'space-between' }}
       >
-        <Box>
+        <Box flex={1} mr={{ base: 0, md: 10 }}>
           <Heading fontSize={xl} fontWeight={800} mb={10} color={primary}>
             Kontakt
           </Heading>
+          <Box
+            position='relative'
+            w='100%'
+            maxWidth='400px'
+            h={80}
+            mb={10}
+          >
+            <Image
+              src='/assets/kontakt.jpg'
+              alt='tanja-senghaas-portrait'
+              layout='fill'
+              objectFit='cover'
+              style={{ borderRadius: '20px' }}
+            />
+          </Box>
           <Heading fontSize={lg} fontWeight={700} color={primary} mb={5}>
             Tanja Senghaas Designs.
           </Heading>
@@ -78,7 +94,6 @@ const Contact: NextPage = () => {
         </Box>
         <Box color={secondary}>
           <Heading
-            color={primary}
             fontSize={xl}
             fontWeight={800}
             mb={10}
