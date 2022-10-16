@@ -14,18 +14,24 @@ export function routeToMenuItem(route: string, menuItems: string[]) {
   return 'nope'
 }
 
+
+
+function timeout(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export async function anchorLink(id: string, router: NextRouter) {
-  let offset = 0
   if (router.pathname !== '/') {
     await router.push('/')
-    offset = window.outerHeight + 20
+    await timeout(500)
   }
   const scrollY = window.scrollY
   const clientY = document.querySelector(`#${id}`)?.getBoundingClientRect().top
+  const offset = 100
   if (scrollY !== undefined && clientY !== undefined) {
     window.scrollTo({
-      top: offset + scrollY + clientY,
-      behavior: 'smooth',
+      top: scrollY + clientY - offset,
+      behavior: 'smooth'
     })
   }
 }
