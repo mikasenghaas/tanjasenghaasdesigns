@@ -12,7 +12,7 @@ import useThemeColors from '@/hooks/use-theme-colors'
 import { useAnimation } from 'framer-motion'
 
 interface Props {
-  children: React.ReactNode,
+  children: React.ReactNode
   heroUrl?: string
 }
 export default function Layout({ children }: Props) {
@@ -23,38 +23,36 @@ export default function Layout({ children }: Props) {
   useEffect(() => {
     if (router.pathname === '/') {
       controls.start({
-        y: "90vh",
-        transition: { type: "ease-out", duration: .5 },
+        y: '90vh',
+        transition: { type: 'ease-out', duration: 0.5 }
       })
     } else {
       controls.start({
         y: 0,
-        transition: { type: "ease-out", duration: .5 },
+        transition: { type: 'ease-out', duration: 0.5 }
       })
-
     }
   }, [controls, router.pathname])
 
   return (
     <>
       <Header />
-      <Hero url='/assets/hero/index.jpg' alt='hero-image' />
+      <Hero url="/assets/hero/index.jpg" alt="hero-image" />
       <MotionFlex
         animate={controls}
-        direction='column'
-        minHeight='100vh'
+        direction="column"
+        minHeight="100vh"
         bgColor={bgColor}
       >
-        <AnimatePresence mode='wait'>
+        <AnimatePresence mode="wait">
           <MotionBox
             key={router.asPath}
-            w='100%'
-            animate={{ opacity: 1, transition: { duration: .5 } }}
+            w="100%"
+            animate={{ opacity: 1, transition: { duration: 0.5 } }}
             initial={{ opacity: 0 }}
-            exit={{ opacity: 0, transition: { duration: .2 } }} >
-            <PageContainer>
-              {children}
-            </PageContainer>
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          >
+            <PageContainer>{children}</PageContainer>
           </MotionBox>
         </AnimatePresence>
         <Footer />

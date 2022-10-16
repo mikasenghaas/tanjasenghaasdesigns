@@ -6,43 +6,65 @@ import { MotionHeading } from '@/components/motion'
 import useThemeColors from '@/hooks/use-theme-colors'
 
 interface HeroProps {
-  url: string,
+  url: string
   alt: string
 }
 export default function Hero({ url, alt }: HeroProps) {
   const { primary } = useThemeColors()
   return (
     <>
-      <Box position='fixed' top={0} height='100vh' width='100vw' mt={-20} zIndex={-1}>
-        <Image
-          src={url}
-          alt={alt}
-          layout='fill'
-          objectFit='cover'
-          priority
-        />
+      <Box
+        position="fixed"
+        top={0}
+        height="100vh"
+        width="100vw"
+        mt={-20}
+        zIndex={-1}
+      >
+        <Image src={url} alt={alt} layout="fill" objectFit="cover" priority />
       </Box>
       <PageContainer>
         <Box
-          mt='35vh'
+          mt="35vh"
           ml={{ base: 0, xl: '-10%' }}
-          position='absolute'
+          position="absolute"
           zIndex={-1}
         >
           <MotionHeading
             initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0, transition: { delay: .5, duration: .5 } }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 0.5, duration: 0.5 }
+            }}
             color={primary}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '5xl', xl: '6xl', xxl: '7xl' }}
+            fontSize={{
+              base: '3xl',
+              sm: '4xl',
+              lg: '5xl',
+              xl: '6xl',
+              xxl: '7xl'
+            }}
           >
             Gutes Design ist <br />
-            mehr als nur schön.<br />
+            mehr als nur schön.
+            <br />
           </MotionHeading>
           <MotionHeading
             initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0, transition: { delay: 2, duration: .5 } }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 2, duration: 0.5 }
+            }}
             color={primary}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '5xl', xl: '6xl', xxl: '7xl' }}
+            fontSize={{
+              base: '3xl',
+              sm: '4xl',
+              lg: '5xl',
+              xl: '6xl',
+              xxl: '7xl'
+            }}
           >
             Es ist eine Haltung.
           </MotionHeading>

@@ -2,7 +2,7 @@ import { extendTheme } from '@chakra-ui/react'
 
 const config = {
   initialColorMode: 'light',
-  useSystemColorMode: false,
+  useSystemColorMode: false
 }
 
 const fonts = {
@@ -14,15 +14,14 @@ const color = {
   brand: {
     700: '#2a69ac',
     800: '#153e75',
-    900: '#1a365d',
-
+    900: '#1a365d'
   }
 }
 
 const breakpoints = {
-  xxl: "96em"
+  xxl: '96em'
 }
 
 const theme = extendTheme({ config, color, breakpoints })
 
-export default theme;
+export default theme

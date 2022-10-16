@@ -30,25 +30,62 @@ const Home: NextPage = () => {
       </Head>
 
       <Box pt={20}>
-        <Heading id='magazines' fontSize={xl} fontWeight={800} pt={20} mb={10} >Magazinentwicklung</Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap='40px 20px'>
-          {
-            magazines.map((magazine: Project) => <GridImage key={magazine.id} project={magazine} type='magazines' />)
-          }
+        <Heading id="magazines" fontSize={xl} fontWeight={800} mt={20} mb={10}>
+          Magazinentwicklung
+        </Heading>
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(3, 1fr)'
+          }}
+          gap="40px 20px"
+        >
+          {magazines.map((magazine: Project) => (
+            <GridImage key={magazine.id} project={magazine} type="magazines" />
+          ))}
         </Grid>
-        <Heading id='corporate' fontSize={xl} fontWeight={800} pt={20} mb={10} >Corporate Design</Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }} gap='40px 20px'>
-          {
-            corporate.map((corporate: Project) => <GridImage key={corporate.id} project={corporate} type='corporate' />)
-          }
+        <Heading id="corporate" fontSize={xl} fontWeight={800} mt={20} mb={10}>
+          Corporate Design
+        </Heading>
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(3, 1fr)'
+          }}
+          gap="40px 20px"
+        >
+          {corporate.map((corporate: Project) => (
+            <GridImage
+              key={corporate.id}
+              project={corporate}
+              type="corporate"
+            />
+          ))}
         </Grid>
-        <Heading id='typography' fontSize={xl} fontWeight={800} pt={20} mb={10}>Typografie</Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap='40px 20px'>
-          {
-            typography.map((typographyProject: Project) => <GridImage key={typographyProject.id} project={typographyProject} type='typography' />)
-          }
+        <Heading id="typography" fontSize={xl} fontWeight={800} mt={20} mb={10}>
+          Typografie
+        </Heading>
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: 'repeat(3, 1fr)',
+            md: 'repeat(4, 1fr)'
+          }}
+          gap="40px 20px"
+        >
+          {typography.map((typographyProject: Project) => (
+            <GridImage
+              key={typographyProject.id}
+              project={typographyProject}
+              type="typography"
+            />
+          ))}
         </Grid>
-        <Heading fontSize={xl} fontWeight={800} mt={20} mb={10}>Kunden-Feedback</Heading>
+        <Heading fontSize={xl} fontWeight={800} mt={20} mb={10}>
+          Kunden-Feedback
+        </Heading>
         <EmblaCarousel />
       </Box>
     </>

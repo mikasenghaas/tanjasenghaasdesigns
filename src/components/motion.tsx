@@ -1,4 +1,13 @@
-import { Box, Flex, MenuButton, AspectRatio, Heading, IconButton, Badge, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  MenuButton,
+  AspectRatio,
+  Heading,
+  IconButton,
+  Badge,
+  Text
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const MotionBox = motion(Box)

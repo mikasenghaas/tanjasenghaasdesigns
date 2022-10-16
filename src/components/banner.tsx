@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react'
 
 const Banner = ({ children, ...props }: any) => {
   return (
@@ -11,7 +11,7 @@ const Banner = ({ children, ...props }: any) => {
     >
       {children}
     </Box>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

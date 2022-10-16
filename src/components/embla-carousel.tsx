@@ -14,54 +14,78 @@ const QuoteBox = ({ quote }: { quote: Quote }) => {
   const { primary, secondary } = useThemeColors()
 
   return (
-    <Flex flex='0 0 100%' direction='column' alignItems='center' justifyContent='start' px={{ base: 0, md: 10 }} >
+    <Flex
+      flex="0 0 100%"
+      direction="column"
+      alignItems="center"
+      justifyContent="start"
+      px={{ base: 0, md: 10 }}
+    >
       <Image
-        src={`/assets/quotes/${quote.author.toLowerCase().replaceAll(' ', '-')}.jpg`}
+        src={`/assets/quotes/${quote.author
+          .toLowerCase()
+          .replaceAll(' ', '-')}.jpg`}
         alt={`${quote.author}-picture`}
-        height='80px'
-        width='80px'
+        height="80px"
+        width="80px"
         style={{ borderRadius: '50%' }}
-        objectFit='cover'
+        objectFit="cover"
       />
-      <Text color={primary} fontSize={lg} fontWeight={600} textAlign='center' mt={5}>{quote.author}</Text>
-      <Text fontSize={sm} fontWeight={500} color={secondary} textAlign='center' minWidth='50%' mb={10}>{quote.authorPosition}, {quote.authorCompany}</Text>
-      <Text fontSize={xl} fontWeight={500} textAlign='center' color={primary}>{quote.text}</Text>
+      <Text
+        color={primary}
+        fontSize={lg}
+        fontWeight={600}
+        textAlign="center"
+        mt={5}
+      >
+        {quote.author}
+      </Text>
+      <Text
+        fontSize={sm}
+        fontWeight={500}
+        color={secondary}
+        textAlign="center"
+        minWidth="50%"
+        mb={10}
+      >
+        {quote.authorPosition}, {quote.authorCompany}
+      </Text>
+      <Text fontSize={xl} fontWeight={500} textAlign="center" color={primary}>
+        {quote.text}
+      </Text>
     </Flex>
   )
 }
 
 const EmblaCarousel = () => {
-  const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })])
-  const [current, setCurrent] = useState<number>(0);
+  const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000 })
+  ])
+  const [current, setCurrent] = useState<number>(0)
   const { primary, secondary } = useThemeColors()
 
   const scrollTo = useCallback(
     (index: number) => embla && embla.scrollTo(index),
     [embla]
-  );
+  )
 
   const onSelect = useCallback(() => {
-    if (!embla) return;
-    setCurrent(embla.selectedScrollSnap());
-  }, [embla]);
+    if (!embla) return
+    setCurrent(embla.selectedScrollSnap())
+  }, [embla])
 
   useEffect(() => {
-    if (!embla) return;
-    onSelect();
-    embla.on("select", onSelect);
-  }, [embla, onSelect]);
+    if (!embla) return
+    onSelect()
+    embla.on('select', onSelect)
+  }, [embla, onSelect])
 
   return (
     <Box>
-      <Box ref={emblaRef} overflow='hidden'>
-        <Box display="flex" mt={5} >
+      <Box ref={emblaRef} overflow="hidden">
+        <Box display="flex" mt={5}>
           {customerQuotes.map((quote: Quote, index: number) => {
-            return (
-              <QuoteBox
-                key={index}
-                quote={quote}
-              />
-            );
+            return <QuoteBox key={index} quote={quote} />
           })}
         </Box>
       </Box>
@@ -73,22 +97,18 @@ const EmblaCarousel = () => {
               key={index}
               w={2}
               h={2}
-              borderRadius='full'
+              borderRadius="full"
               mx={1}
               my={5}
-              bgColor={
-                current === index
-                  ? primary
-                  : secondary
-              }
-              _hover={{ cursor: "pointer" }}
+              bgColor={current === index ? primary : secondary}
+              _hover={{ cursor: 'pointer' }}
               onClick={() => scrollTo(index)}
             />
-          );
+          )
         })}
       </Flex>
-    </Box >
+    </Box>
   )
 }
 
-export default EmblaCarousel;
+export default EmblaCarousel

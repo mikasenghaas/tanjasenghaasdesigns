@@ -1,9 +1,9 @@
 import { useColorMode, useColorModeValue } from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import { MotionFlex } from '@/components/motion'
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence } from 'framer-motion'
 
-import useThemeColors from "@/hooks/use-theme-colors";
+import useThemeColors from '@/hooks/use-theme-colors'
 
 export function ColorSwitch() {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -13,7 +13,7 @@ export function ColorSwitch() {
   const SwitchIcon = useColorModeValue(MoonIcon, SunIcon)
 
   return (
-    <AnimatePresence mode='wait' initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
       <MotionFlex
         key={colorMode}
         initial={{ y: -5, opacity: 0 }}
@@ -23,14 +23,13 @@ export function ColorSwitch() {
         aria-label={`Switch to ${oppositeColorMode} mode`}
         color={primary}
         onClick={toggleColorMode}
-        w='full'
-        h='full'
-        alignItems='center'
-        justifyContent='center'
+        w="full"
+        h="full"
+        alignItems="center"
+        justifyContent="center"
       >
         <SwitchIcon h={4} />
       </MotionFlex>
     </AnimatePresence>
-
   )
 }
