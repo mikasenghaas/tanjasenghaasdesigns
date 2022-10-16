@@ -5,11 +5,7 @@ import PageContainer from '@/components/page-container'
 import { MotionHeading } from '@/components/motion'
 import useThemeColors from '@/hooks/use-theme-colors'
 
-interface HeroProps {
-  url: string
-  alt: string
-}
-export default function Hero({ url, alt }: HeroProps) {
+export default function Hero() {
   const { primary } = useThemeColors()
   return (
     <>
@@ -21,7 +17,7 @@ export default function Hero({ url, alt }: HeroProps) {
         mt={-20}
         zIndex={-1}
       >
-        <Image src={url} alt={alt} layout="fill" objectFit="cover" priority />
+        <Image src='/assets/hero.jpg' alt='tanja-senghaas-designs-hero' layout="fill" objectFit="cover" priority />
       </Box>
       <PageContainer>
         <Box

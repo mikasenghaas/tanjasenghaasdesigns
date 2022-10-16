@@ -37,7 +37,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <Hero url="/assets/hero/index.jpg" alt="hero-image" />
+      <Hero />
       <MotionFlex
         animate={controls}
         direction="column"
