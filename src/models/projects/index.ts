@@ -10,7 +10,6 @@ export interface Project {
   position: string
   company: string
   numImages?: number
-  pointOfInterest: number
   link?: string
 }
 
