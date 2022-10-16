@@ -1,10 +1,6 @@
-import { Project } from '@/models/projects';
+import { ProjectsById } from '@/models/projects';
 
-export interface Typography extends Project {
-  link?: string
-};
-export type typographyById = Record<string, Typography>
-const DATA: typographyById = {
+const DATA: ProjectsById = {
   'jayjays': {
     id: 'jayjays',
     name: "JayJay's",

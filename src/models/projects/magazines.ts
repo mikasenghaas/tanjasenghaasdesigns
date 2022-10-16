@@ -1,11 +1,6 @@
-import { Project } from '@/models/projects';
+import type { ProjectsById } from '@/models/projects';
 
-export interface Magazine extends Project {
-  numImages: number
-}
-
-export interface MagazineByIdProps { [key: string]: Magazine }
-const DATA: MagazineByIdProps = {
+const DATA: ProjectsById = {
   'gesund-leben':
   {
     id: 'gesund-leben',
