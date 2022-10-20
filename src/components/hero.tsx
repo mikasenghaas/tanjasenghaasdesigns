@@ -4,9 +4,11 @@ import { Box } from '@chakra-ui/react'
 import PageContainer from '@/components/page-container'
 import { MotionHeading } from '@/components/motion'
 import useThemeColors from '@/hooks/use-theme-colors'
+import useWindowSize from '@/hooks/use-window-size'
 
 export default function Hero() {
   const { primary } = useThemeColors()
+  const { width } = useWindowSize()
   return (
     <>
       <Box
@@ -17,7 +19,10 @@ export default function Hero() {
         mt={-20}
         zIndex={-1}
       >
-        <Image src='/assets/hero.jpg' alt='tanja-senghaas-designs-hero' layout="fill" objectFit="cover" priority />
+        {width > 500
+          ? <Image src='/assets/hero.jpg' alt='tanja-senghaas-designs-hero' layout="fill" objectFit="cover" priority />
+          : <Image src='/assets/hero-mobile.jpg' alt='tanja-senghaas-designs-hero' layout="fill" objectFit="cover" priority />
+        }
       </Box>
       <PageContainer>
         <Box
