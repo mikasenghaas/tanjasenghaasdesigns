@@ -1,6 +1,10 @@
 import { useBreakpointValue } from '@chakra-ui/react'
 
 export default function useResponsiveFontSizes() {
+  const xs = useBreakpointValue(
+    { base: 'xs', md: 'xs', xxl: 'sm' },
+    { fallback: 'md', ssr: true }
+  )
   const sm = useBreakpointValue(
     { base: 'sm', md: 'sm', xxl: 'md' },
     { fallback: 'md', ssr: true }
@@ -18,5 +22,5 @@ export default function useResponsiveFontSizes() {
     { fallback: 'md', ssr: true }
   )
 
-  return { sm, md, lg, xl }
+  return { xs, sm, md, lg, xl }
 }
