@@ -28,26 +28,26 @@ const Impressum: NextPage = () => {
         <Text fontSize={md} fontWeight={700} mt={10}>Tanja Senghaas Designs.</Text>
         <Flex maxWidth='500px' my={2}>
           <Text flex={1} fontSize={md} fontWeight={300}>Inhaberin</Text>
-          <Text flex={1} fontSize={md} fontWeight={500}>Tanja Senghaas Thomsen</Text>
+          <Text flex={2} fontSize={md} fontWeight={500}>Tanja Senghaas Thomsen</Text>
         </Flex>
         <Flex maxWidth='500px' my={2}>
           <Text flex={1} fontSize={md} fontWeight={300}>Adresse</Text>
-          <Box flex={1} fontSize={md} fontWeight={500}>
+          <Box flex={2} fontSize={md} fontWeight={500}>
             <Text>Horandstieg 30</Text>
             <Text>22559, Hamburg</Text>
           </Box>
         </Flex>
         <Flex maxWidth='500px' my={1}>
           <Text flex={1} fontSize={md} fontWeight={300}>Email</Text>
-          <Text flex={1} fontSize={md} fontWeight={500}>tanja.senghaas@web.de</Text>
+          <Text flex={2} fontSize={md} fontWeight={500}>tanja.senghaas@web.de</Text>
         </Flex>
         <Flex maxWidth='500px' my={1}>
           <Text flex={1} fontSize={md} fontWeight={300}>Telefon</Text>
-          <Text flex={1} fontSize={md} fontWeight={500}>+49 151 22543476</Text>
+          <Text flex={2} fontSize={md} fontWeight={500}>+49 151 22543476</Text>
         </Flex>
         <Flex maxWidth='500px' my={1}>
           <Text flex={1} fontSize={md} fontWeight={300}>Webpräsenz</Text>
-          <Text flex={1} fontSize={md} fontWeight={500}>tanjasenghaas.de</Text>
+          <Text flex={2} fontSize={md} fontWeight={500}>tanjasenghaas.de</Text>
         </Flex>
         <Heading fontSize={xl} mt={20}>Rechtliche Hinweise</Heading>
         <Divider my={3} />
