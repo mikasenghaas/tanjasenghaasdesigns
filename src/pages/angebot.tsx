@@ -21,7 +21,7 @@ const Angebot: NextPage = () => {
     <>
       <Head>
         <title>Angebot | Tanja Senghaas Designs.</title>
-        <meta name="description" content="Tanja Senghaas ist eine deutsche Grafikdesignern und Artdirektiorin mit einer Spezialisierung auf Magazindesignentwicklung." />
+        <meta name="description" content="Die erfahrene Art Direktorin und Designerin Tanja Senghaas bietet hochwertige Gestaltung in den Bereichen Corporate Design, Magazinentwicklung und Typografie." />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
