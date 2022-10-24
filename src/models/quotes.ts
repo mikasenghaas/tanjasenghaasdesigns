@@ -9,7 +9,7 @@ const DATA: Quote[] = [
   {
     text: 'Kreativ und organisiert – Tanja hat diese seltene Kombination! Sie kann sich nicht nur hervorragend in Zeitgeistthemen eindenken und die passende, eigenständige und neue Optik dazu erfinden, sie ist einfach ein großartiger Sparringspartner, um Ideen weiterzuentwickeln und komplexe Formate zu strukturieren. Tanja taucht in jedes Thema komplett ein, bleibt dran, bis die Optik wirklich sitzt – es ist dieses ‚Ein kleines Stück weiter gehen als üblich‘, das Tanja auszeichnet und jeden ihrer Entwürfe so außergewöhnlich macht.',
     author: 'Sinja Schütte',
-    authorPosition: 'Chefredakteurin Living at Home, Landlust, Hygge, Molly',
+    authorPosition: 'Chefredakteurin Living at Home, Landlust, Hygge, Holly',
     authorCompany: 'Deutsche Medien Manufaktur'
   },
   {
