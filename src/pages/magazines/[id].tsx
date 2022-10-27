@@ -33,18 +33,17 @@ interface Props {
   magazine: string
 }
 const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
-  const { id, name, description, position, company, date, numImages } =
-    JSON.parse(magazine)
+  const { id, name, description, position, company, date, numImages } = JSON.parse(magazine)
   const { sm, md, lg } = useResponsiveFontSizes()
   const { primary, secondary } = useThemeColors()
 
   return (
     <>
       <Head>
-        <title>{name} | Tanja Senghaas Designs.</title>
+        <title>{`${name} | Tanja Senghaas Designs.`}</title>
         <meta
           name="description"
-          content={`${name} | ${description}`}
+          content={`${name} | ${description.join(' ')}`}
         />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
@@ -92,7 +91,7 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
             )
           })}
         </Grid>
-      </Box>
+      </Box >
     </>
   )
 }

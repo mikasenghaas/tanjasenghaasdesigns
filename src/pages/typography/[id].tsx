@@ -41,7 +41,7 @@ const MagazinePage: NextPage<Props> = ({ magazine }: Props) => {
   return (
     <>
       <Head>
-        <title>{name} | Tanja Senghaas Designs.</title>
+        <title>{`{name} | Tanja Senghaas Designs.`}</title>
         <meta
           name="description"
           content={`${name} | ${description}`}
