@@ -56,8 +56,8 @@ const Contact: NextPage = () => {
             <Text color={secondary} mr={1}>
               Sag Hallo
             </Text>
-            <ExternalLink href="mailto:tanja.senghaas@web.de" isExternal>
-              <Text fontSize={md}>tanja.senghaas@web.de</Text>
+            <ExternalLink href="mailto:mail@tanjasenghaasdesigns.de" isExternal>
+              <Text fontSize={md}>mail@tanjasenghaasdesigns.de</Text>
             </ExternalLink>
           </Flex>
           <Flex>
@@ -126,8 +126,8 @@ const Contact: NextPage = () => {
           <ExternalLink href="https://www.jonas-mika.de" isExternal>
             <Text fontSize={sm}>jonas-mika.de</Text>
           </ExternalLink>
-          <ExternalLink href="mailto:contact@jonas-mika.de" isExternal>
-            <Text fontSize={sm}>contact@jonas-mika.de</Text>
+          <ExternalLink href="mailto:mail@mikasenghaas.de" isExternal>
+            <Text fontSize={sm}>mail@mikasenghaas.de</Text>
           </ExternalLink>
           <ExternalLink href="tel:+4560740477">
             <Text fontSize={sm}>+45 60740477</Text>
