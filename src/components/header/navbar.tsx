@@ -57,7 +57,7 @@ export function NavbarDesktop() {
             Magazindesign
           </MenuItem>
           <MenuItem onClick={() => anchorLink('corporate', router)}>
-            Corporate Design
+            Corporate und Web Design
           </MenuItem>
           <MenuItem onClick={() => anchorLink('typography', router)}>
             Typografie
@@ -139,7 +139,7 @@ export function NavbarMobile() {
             Magazinentwicklung
           </MenuItem>
           <MenuItem onClick={() => anchorLink('corporate', router)}>
-            Corporate Design
+            Corporate und Web Design
           </MenuItem>
           <MenuItem onClick={() => anchorLink('typography', router)}>
             Typografie

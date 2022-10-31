@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           ))}
         </Grid>
         <Heading id="corporate" fontSize={xl} fontWeight={800} mt={20} mb={10}>
-          Corporate Design
+          Corporate und Web Design
         </Heading>
         <Grid
           templateColumns={{

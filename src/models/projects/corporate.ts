@@ -12,6 +12,15 @@ const DATA: ProjectsById = {
     ],
     numImages: 4
   },
+  'spengler-fox': {
+    id: 'spengler-fox',
+    name: 'SpenglerFox Website',
+    date: new Date('2022'),
+    position: 'Kreativ Direktion',
+    company: 'SpenglerFox/ Narrative Impact',
+    description: ['Optische Neuausrichtung des Webauftritts der Executive Search Agentur SpenglerFox, um Modernität und Agilität der Agentur stärker sichtbar zu machen.'],
+    numImages: 3
+  },
   'landlust-shop-beihefter': {
     id: 'landlust-shop-beihefter',
     name: 'Landlust Shop Beihefter',
@@ -21,14 +30,23 @@ const DATA: ProjectsById = {
     description: ["Um in der Weihnachtszeit auf die Angebote des Landlust Shops aufmerksam zu machen, entstand ein 8-seitiger Beihefter, der in Landlust 6/22 eingeheftet war."],
     numImages: 4
   },
-  'landlust-shop-anzeige': {
-    id: 'landlust-shop-anzeige',
-    name: 'Landlust Shop Anzeige',
+  'landlust-website': {
+    id: 'landlust-website',
+    name: 'Landlust Website',
     date: new Date('2022'),
     position: 'Art Direktion',
     company: 'Deutsche Medien-Manufaktur',
-    description: ["Überarbeitung der Eigenanzeige des Landlust-Shops inklusive neuem Landlust-Shop Logo."],
-    numImages: 2
+    description: ['Optisches Konzept für den Aus- und Umbau der Website von Landlust. Aufgabe war es, den Digitalauftritt des erfolgreichen Landmagazins stärker am Look des Heftes auszurichten und nutzerinnenfreundlicher zu gestalten.'],
+    numImages: 3
+  },
+  'horton': {
+    id: 'horton',
+    name: 'Horton Consulting Website',
+    date: new Date('2022'),
+    position: 'Art Direktion',
+    company: 'Horton Consulting/ Narrative Impact',
+    description: ['Optisches Konzept für den Ausbau der Website von Horton Consulting, dem internationalen Executive-Search- und Management-Consulting-Firma.'],
+    numImages: 3
   }
 }
 
