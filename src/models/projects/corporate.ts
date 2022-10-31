@@ -7,7 +7,7 @@ const DATA: ProjectsById = {
     date: new Date('2022'),
     position: 'Kreativ Direktion',
     company: 'SpenglerFox/ Narrative Impact',
-    description: ['Optische Neuausrichtung des Webauftritts der Executive Search Agentur SpenglerFox, um Modernität und Agilität der Agentur stärker sichtbar zu machen.'],
+    description: ['Optische Neuausrichtung des Webauftritts der Executive Search Agentur SpenglerFox und Entwicklung eines Key Visuals, um Modernität und Agilität der Agentur stärker sichtbar zu machen.'],
     numImages: 3
   },
   'landlust-website': {
